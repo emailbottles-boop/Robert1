@@ -307,6 +307,18 @@
       color: var(--muted);
     }
 
+    /* ── Spotify embed ── */
+    .embed-wrap {
+      width: 100%;
+      margin-bottom: 48px;
+    }
+
+    .embed-wrap iframe {
+      width: 100%;
+      border-radius: 14px;
+      border: none;
+    }
+
     /* ── Footer ── */
     footer {
       position: relative;
@@ -400,6 +412,31 @@
         <span class="btn-arrow">→</span>
       </a>
 
+    </div>
+
+    <!-- Spotify album embed -->
+    <p class="section-title">Latest Release</p>
+    <div class="embed-wrap">
+      <iframe
+        src="https://open.spotify.com/embed/album/6IDxep1Z2tHUSiA87LN2iz?utm_source=generator&theme=0"
+        height="380"
+        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+        loading="lazy">
+      </iframe>
+    </div>
+
+    <!-- YouTube playlist embed -->
+    <p class="section-title">On YouTube</p>
+    <div class="embed-wrap">
+      <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:14px;">
+        <iframe
+          src="https://www.youtube.com/embed/Xe9I4uTzvtk?list=OLAK5uy_nRqZLUT0xraJ2dUMRDTLjGpN9VRmo4aRo"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;border-radius:14px;"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowfullscreen
+          loading="lazy">
+        </iframe>
+      </div>
     </div>
 
     <!-- Quick links grid -->
