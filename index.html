@@ -5,262 +5,122 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Two Bottles</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;600;700&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;700&display=swap');
 
-    *, *::before, *::after {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
 
-    :root {
-      --bg: #0a0a0f;
-      --border: #1e1e2e;
-      --text: #e8e8f0;
-      --muted: #6b6b82;
-    }
-
-    html, body {
-      height: 100%;
-      width: 100%;
-      overflow: hidden;
-      background: var(--bg);
+    body {
       font-family: 'Space Grotesk', sans-serif;
-      color: var(--text);
-    }
-
-    /* ── Animated background ── */
-    .bg-glow {
-      position: fixed;
-      inset: 0;
-      z-index: 0;
-      pointer-events: none;
+      background: #111008;
+      height: 100vh;
+      width: 100vw;
       overflow: hidden;
-    }
-
-    .bg-glow::before,
-    .bg-glow::after {
-      content: '';
-      position: absolute;
-      border-radius: 50%;
-      filter: blur(160px);
-      opacity: 0.12;
-      animation: drift 14s ease-in-out infinite alternate;
-    }
-
-    .bg-glow::before {
-      width: 700px;
-      height: 700px;
-      background: #7c6af7;
-      top: -200px;
-      left: -200px;
-    }
-
-    .bg-glow::after {
-      width: 600px;
-      height: 600px;
-      background: #f76aac;
-      bottom: -200px;
-      right: -200px;
-      animation-delay: -7s;
-    }
-
-    @keyframes drift {
-      from { transform: translate(0, 0) scale(1); }
-      to   { transform: translate(50px, 40px) scale(1.12); }
-    }
-
-    /* ── Grid ── */
-    .grid {
-      position: relative;
-      z-index: 1;
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
-      width: 100vw;
-      height: 100vh;
+      gap: 10px;
+      padding: 10px;
     }
 
-    /* ── Cells ── */
-    .cell {
+    .card {
+      border-radius: 24px;
       display: flex;
       flex-direction: column;
       align-items: center;
       justify-content: center;
+      gap: 14px;
       text-decoration: none;
-      color: var(--text);
-      padding: 40px;
+      cursor: pointer;
       position: relative;
       overflow: hidden;
-      border: 1px solid var(--border);
-      transition: background 0.25s ease;
-      cursor: pointer;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
     }
 
-    .cell::after {
-      content: '';
-      position: absolute;
-      inset: 0;
-      opacity: 0;
-      transition: opacity 0.25s ease;
+    .card:hover { transform: scale(1.02); }
+
+    /* Each card gets its own warm gradient */
+    .music { background: linear-gradient(135deg, #f5c842 0%, #f0a500 100%); box-shadow: 0 8px 40px rgba(245,200,66,0.35); }
+    .photo { background: linear-gradient(135deg, #ff8c69 0%, #e8553e 100%); box-shadow: 0 8px 40px rgba(255,140,105,0.35); }
+    .drug  { background: linear-gradient(135deg, #7de87a 0%, #3cb85a 100%); box-shadow: 0 8px 40px rgba(125,232,122,0.35); }
+    .web   { background: linear-gradient(135deg, #70c9f5 0%, #3a8fd4 100%); box-shadow: 0 8px 40px rgba(112,201,245,0.35); }
+
+    .card:hover.music { box-shadow: 0 16px 60px rgba(245,200,66,0.55); }
+    .card:hover.photo { box-shadow: 0 16px 60px rgba(255,140,105,0.55); }
+    .card:hover.drug  { box-shadow: 0 16px 60px rgba(125,232,122,0.55); }
+    .card:hover.web   { box-shadow: 0 16px 60px rgba(112,201,245,0.55); }
+
+    .icon {
+      font-size: 3rem;
+      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2));
+      transition: transform 0.2s ease;
     }
 
-    .cell:hover::after { opacity: 1; }
+    .card:hover .icon { transform: translateY(-6px) scale(1.1); }
 
-    /* Per-cell accent colors */
-    .cell-music::after   { background: radial-gradient(ellipse at center, rgba(124,106,247,0.14) 0%, transparent 70%); }
-    .cell-photo::after   { background: radial-gradient(ellipse at center, rgba(247,106,172,0.14) 0%, transparent 70%); }
-    .cell-drug::after    { background: radial-gradient(ellipse at center, rgba(29,185,84,0.12) 0%, transparent 70%); }
-    .cell-web::after     { background: radial-gradient(ellipse at center, rgba(255,165,0,0.12) 0%, transparent 70%); }
-
-    .cell:hover { background: rgba(255,255,255,0.02); }
-
-    /* ── Cell icon ── */
-    .cell-icon {
-      width: 64px;
-      height: 64px;
-      border-radius: 18px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 2rem;
-      margin-bottom: 20px;
-      transition: transform 0.25s ease;
-      position: relative;
-      z-index: 1;
-    }
-
-    .cell:hover .cell-icon { transform: scale(1.1) translateY(-4px); }
-
-    .cell-music .cell-icon { background: rgba(124,106,247,0.18); }
-    .cell-photo .cell-icon { background: rgba(247,106,172,0.18); }
-    .cell-drug  .cell-icon { background: rgba(29,185,84,0.18); }
-    .cell-web   .cell-icon { background: rgba(255,165,0,0.18); }
-
-    /* ── Cell text ── */
-    .cell-title {
-      font-size: clamp(1.2rem, 2.5vw, 1.9rem);
+    .label {
+      font-size: clamp(1.1rem, 2.8vw, 2rem);
       font-weight: 700;
-      letter-spacing: -0.02em;
+      color: #111;
       text-align: center;
-      line-height: 1.15;
-      position: relative;
-      z-index: 1;
-      transition: transform 0.25s ease;
+      line-height: 1.2;
+      letter-spacing: -0.02em;
     }
 
-    .cell:hover .cell-title { transform: translateY(-2px); }
-
-    .cell-music .cell-title { color: #a89fff; }
-    .cell-photo .cell-title { color: #f7a8d4; }
-    .cell-drug  .cell-title { color: #6dd89b; }
-    .cell-web   .cell-title { color: #ffc166; }
-
-    .cell-sub {
-      font-size: 0.78rem;
-      color: var(--muted);
-      margin-top: 8px;
-      letter-spacing: 0.06em;
+    .sub {
+      font-size: 0.8rem;
+      font-weight: 400;
+      color: rgba(0,0,0,0.5);
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      position: relative;
-      z-index: 1;
     }
 
-    /* ── Corner label ── */
-    .corner-label {
-      position: absolute;
-      font-size: 0.65rem;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--border);
-      transition: color 0.25s ease;
-    }
-
-    .cell:hover .corner-label { color: var(--muted); }
-
-    .cell-music .corner-label { top: 16px; left: 20px; }
-    .cell-photo .corner-label { top: 16px; right: 20px; }
-    .cell-drug  .corner-label { bottom: 16px; left: 20px; }
-    .cell-web   .corner-label { bottom: 16px; right: 20px; }
-
-    /* ── Center cross ── */
-    .cross-h {
-      display: none; /* handled by grid borders */
-    }
-
-    /* ── Coming soon badge ── */
     .badge {
       position: absolute;
-      top: 16px;
-      right: 20px;
+      top: 14px;
+      right: 16px;
+      background: rgba(0,0,0,0.15);
+      color: rgba(0,0,0,0.5);
       font-size: 0.6rem;
+      font-weight: 700;
       letter-spacing: 0.1em;
       text-transform: uppercase;
-      padding: 3px 8px;
+      padding: 4px 10px;
       border-radius: 20px;
-      border: 1px solid var(--border);
-      color: var(--muted);
     }
 
-    .cell-photo .badge  { top: 16px; right: 20px; }
-    .cell-drug  .badge  { top: 16px; right: 20px; }
-    .cell-web   .badge  { top: 16px; right: 20px; }
-
-    /* ── Mobile ── */
-    @media (max-width: 600px) {
-      html, body { overflow: auto; }
-      .grid {
-        grid-template-columns: 1fr;
-        grid-template-rows: repeat(4, 50vw);
-        min-height: 100vh;
-        height: auto;
-      }
-      .cell { padding: 24px; }
-      .cell-icon { width: 48px; height: 48px; font-size: 1.5rem; margin-bottom: 12px; }
+    @media (max-width: 560px) {
+      body { grid-template-columns: 1fr; grid-template-rows: repeat(4, 1fr); height: auto; min-height: 100vh; overflow: auto; }
+      .card { min-height: 160px; }
     }
   </style>
 </head>
 <body>
 
-  <div class="bg-glow"></div>
+  <a class="card music" href="/music">
+    <div class="icon">🎵</div>
+    <div class="label">Two Bottles<br>Music</div>
+    <div class="sub">Stream &amp; Listen</div>
+  </a>
 
-  <div class="grid">
+  <div class="card photo">
+    <span class="badge">Coming Soon</span>
+    <div class="icon">📷</div>
+    <div class="label">Photography</div>
+    <div class="sub">Portfolio</div>
+  </div>
 
-    <!-- Top Left: Music -->
-    <a class="cell cell-music" href="/music">
-      <span class="corner-label">01</span>
-      <div class="cell-icon">🎵</div>
-      <div class="cell-title">Two Bottles<br>Music</div>
-      <div class="cell-sub">Stream &amp; Listen</div>
-    </a>
+  <div class="card drug">
+    <span class="badge">Coming Soon</span>
+    <div class="icon">🧪</div>
+    <div class="label">Drug Testing</div>
+    <div class="sub">Harm Reduction</div>
+  </div>
 
-    <!-- Top Right: Photography -->
-    <div class="cell cell-photo">
-      <span class="corner-label">02</span>
-      <span class="badge">Coming Soon</span>
-      <div class="cell-icon">📷</div>
-      <div class="cell-title">Photography</div>
-      <div class="cell-sub">Portfolio</div>
-    </div>
-
-    <!-- Bottom Left: Drug Testing -->
-    <div class="cell cell-drug">
-      <span class="corner-label">03</span>
-      <span class="badge">Coming Soon</span>
-      <div class="cell-icon">🧪</div>
-      <div class="cell-title">Drug Testing</div>
-      <div class="cell-sub">Harm Reduction</div>
-    </div>
-
-    <!-- Bottom Right: Web Development -->
-    <div class="cell cell-web">
-      <span class="corner-label">04</span>
-      <span class="badge">Coming Soon</span>
-      <div class="cell-icon">💻</div>
-      <div class="cell-title">Web Development</div>
-      <div class="cell-sub">Projects &amp; Work</div>
-    </div>
-
+  <div class="card web">
+    <span class="badge">Coming Soon</span>
+    <div class="icon">💻</div>
+    <div class="label">Web Dev</div>
+    <div class="sub">Projects &amp; Work</div>
   </div>
 
 </body>
