@@ -48,34 +48,29 @@
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
-    .archive {
+    .btn {
       position: fixed;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      padding: 20px 32px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      border-top: 1px solid rgba(255,255,255,0.08);
-    }
-    .archive-label {
-      font-size: 0.65rem;
+      bottom: 32px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: linear-gradient(135deg, #2db86a, #0e7a3e);
+      color: #fff;
+      font-family: 'Outfit', sans-serif;
+      font-size: 1rem;
       font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.25);
-    }
-    .archive-link {
-      font-size: 0.85rem;
-      font-weight: 700;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: #2db86a;
+      letter-spacing: 0.04em;
       text-decoration: none;
-      transition: opacity 0.2s;
+      padding: 16px 36px;
+      border-radius: 100px;
+      box-shadow: 0 8px 32px rgba(14,122,62,0.5);
+      white-space: nowrap;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
     }
-    .archive-link:hover { opacity: 0.7; }
+    .btn:hover, .btn:active {
+      transform: translateX(-50%) scale(0.97);
+      box-shadow: 0 4px 16px rgba(14,122,62,0.4);
+    }
   </style>
 </head>
 <body>
@@ -83,9 +78,6 @@
   <h1><span class="accent">Harm</span> Reduction</h1>
   <p>Coming Soon</p>
 
-  <div class="archive">
-    <span class="archive-label">Information Archive</span>
-    <a class="archive-link" href="https://web.archive.org/web/20210330220501/https://www.erowid.org/columns/crew/2019/01/reagents-and-lsd-gel-tabs/" target="_blank" rel="noopener noreferrer">Reagents &amp; LSD Gel Tabs &#8594;</a>
-  </div>
+  <a class="btn" href="https://web.archive.org/web/20210330220501/https://www.erowid.org/columns/crew/2019/01/reagents-and-lsd-gel-tabs/" target="_blank" rel="noopener noreferrer">Testing Gelatin</a>
 </body>
 </html>
