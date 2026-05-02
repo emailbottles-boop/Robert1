@@ -48,11 +48,17 @@
       letter-spacing: 0.06em;
       text-transform: uppercase;
     }
-    .btn {
+    .btns {
       position: fixed;
       bottom: 32px;
       left: 50%;
       transform: translateX(-50%);
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .btn {
       background: linear-gradient(135deg, #2db86a, #0e7a3e);
       color: #fff;
       font-family: 'Outfit', sans-serif;
@@ -68,7 +74,7 @@
       -webkit-tap-highlight-color: transparent;
     }
     .btn:hover, .btn:active {
-      transform: translateX(-50%) scale(0.97);
+      transform: scale(0.97);
       box-shadow: 0 4px 16px rgba(14,122,62,0.4);
     }
   </style>
@@ -78,6 +84,9 @@
   <h1><span class="accent">Harm</span> Reduction</h1>
   <p>Coming Soon</p>
 
-  <a class="btn" href="/drug-testing/testing-gelatin">Testing Gelatin</a>
+  <div class="btns">
+    <a class="btn" href="/drug-testing/testing-gelatin">Testing Gelatin</a>
+    <a class="btn" href="/drug-testing/test-strips">Test Strips</a>
+  </div>
 </body>
 </html>
