@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carrier Sources — Harm Reduction</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: #0d0d0d;
+      color: #fff;
+      min-height: 100dvh;
+      padding: 80px 24px 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .back {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .back:hover { color: #fff; }
+
+    header {
+      text-align: center;
+      margin-bottom: 16px;
+    }
+
+    h1 {
+      font-size: clamp(2rem, 8vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      margin-bottom: 8px;
+    }
+
+    .accent { color: #2db86a; }
+
+    .subtitle {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+
+    /* ── Disclaimer ── */
+    .disclaimer {
+      width: 100%;
+      max-width: 600px;
+      background: rgba(230,168,32,0.08);
+      border: 1px solid rgba(230,168,32,0.25);
+      border-radius: 14px;
+      padding: 16px 20px;
+      margin: 24px 0 36px;
+      font-size: 0.82rem;
+      color: rgba(255,255,255,0.6);
+      line-height: 1.6;
+    }
+
+    .disclaimer strong { color: #e6a820; }
+
+    /* ── Section ── */
+    .section {
+      width: 100%;
+      max-width: 600px;
+      margin-bottom: 36px;
+    }
+
+    .section-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      margin-bottom: 12px;
+      padding-left: 2px;
+    }
+
+    .list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+    }
+
+    .link-card {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 18px 22px;
+      border-radius: 14px;
+      background: #181818;
+      border: 1px solid #2a2a2a;
+      text-decoration: none;
+      color: #fff;
+      transition: border-color 0.2s, transform 0.2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .link-card:hover,
+    .link-card:active {
+      border-color: #2db86a;
+      transform: scale(0.99);
+    }
+
+    .link-card-text { flex: 1; }
+
+    .link-title {
+      font-size: 0.95rem;
+      font-weight: 700;
+      line-height: 1.3;
+    }
+
+    .link-source {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.3);
+      margin-top: 3px;
+    }
+
+    .tag {
+      display: inline-block;
+      font-size: 0.6rem;
+      font-weight: 700;
+      padding: 2px 7px;
+      border-radius: 20px;
+      margin-left: 6px;
+      vertical-align: middle;
+    }
+
+    .tag-direct  { background: rgba(45,184,106,0.15); color: #2db86a; }
+    .tag-general { background: rgba(112,201,245,0.15); color: #70c9f5; }
+
+    .link-arrow {
+      color: #2db86a;
+      font-size: 1rem;
+      flex-shrink: 0;
+    }
+  </style>
+</head>
+<body>
+
+  <a class="back" href="/harmreduction/testing-log">&#8592; Back</a>
+
+  <header>
+    <h1><span class="accent">Carrier</span> Sources</h1>
+    <p class="subtitle">What's Actually Documented</p>
+  </header>
+
+  <div class="disclaimer">
+    <strong>Transparency note:</strong> Most published reagent guides assume powder or blotter — not oils, tinctures, or glycerin. The entries in the testing log marked with carriers other than powder are based on two things: (1) directly documented cases like the Bunk Police propylene glycol study, and (2) general matrix interference science. They are working hypotheses, not confirmed results. This page shows exactly where the data comes from.
+  </div>
+
+  <!-- Directly documented -->
+  <div class="section">
+    <p class="section-label">Directly Documented — Carrier-Specific</p>
+    <div class="list">
+
+      <a class="link-card"
+         href="https://bunkpolice.com/dmt-vape-pens-how-to-test-dmt-vape-juice/"
+         target="_blank" rel="noopener noreferrer">
+        <div class="link-card-text">
+          <div class="link-title">Testing DMT Vape Juice — Propylene Glycol &amp; Vegetable Glycerin <span class="tag tag-direct">Direct</span></div>
+          <div class="link-source">Bunk Police — documented that PG interferes with Mecke; Ehrlich/Hofmann recommended; reactions slower and fainter in carrier</div>
+        </div>
+        <span class="link-arrow">&#8599;</span>
+      </a>
+
+      <a class="link-card"
+         href="https://bunkpolice.com/how-to-test-dmt/"
+         target="_blank" rel="noopener noreferrer">
+        <div class="link-card-text">
+          <div class="link-title">How to Test DMT — Including Vape &amp; Liquid Forms <span class="tag tag-direct">Direct</span></div>
+          <div class="link-source">Bunk Police — practical guide covering carrier interference and which reagents survive it</div>
+        </div>
+        <span class="link-arrow">&#8599;</span>
+      </a>
+
+      <a class="link-card"
+         href="https://bunkpolice.com/reaction-video-library/dmt-propylene-glycol/"
+         target="_blank" rel="noopener noreferrer">
+        <div class="link-card-text">
+          <div class="link-title">DMT in Propylene Glycol — Reaction Video <span class="tag tag-direct">Direct</span></div>
+          <div class="link-source">Bunk Police reaction library — visual documentation of reagent color in PG carrier</div>
+        </div>
+        <span class="link-arrow">&#8599;</span>
+      </a>
+
+      <a class="link-card"
+         href="https://drugcheckingbc.ca/wp-content/uploads/sites/4/2024/09/Using-Ehrlich-Reagent-for-Drug-Checking.pdf"
+         target="_blank" rel="noopener noreferrer">
+        <div class="link-card-text">
+          <div class="link-title">Using Ehrlich Reagent — Notes on Complex Matrices <span class="tag tag-direct">Direct</span></div>
+          <div class="link-source">DrugCheckingBC / BCCSU (2024) — documents that gelatin and complex matrices cause slow or absent reactions</div>
+        </div>
+        <span class="link-arrow">&#8599;</span>
+      </a>
+
+    </div>
+  </div>
+
+  <!-- General matrix science -->
+  <div class="section">
+    <p class="section-label">General Matrix Interference Science</p>
+    <div class="list">
+
+      <a class="link-card"
+         href="https://dancesafe.org/wp-content/uploads/2024/05/DS_Instructions_Reagents_v17Spring24.pdf"
+         target="_blank" rel="noopener noreferrer">
+        <div class="link-card-text">
+          <div class="link-title">How to Test Your Drugs With Reagents <span class="tag tag-general">General</span></div>
+          <div class="link-source">DanceSafe (2024) — standard reagent guide; baseline for what normal reactions look like in powder form</div>
+        </div>
+        <span class="link-arrow">&#8599;</span>
+      </a>
+
+      <a class="link-card"
+         href="https://www.ojp.gov/pdffiles1/nij/183258.pdf"
+         target="_blank" rel="noopener noreferrer">
+        <div class="link-card-text">
+          <div class="link-title">Color Test Reagents for Preliminary Identification of Controlled Substances <span class="tag tag-general">General</span></div>
+          <div class="link-source">U.S. Dept. of Justice / NIJ — documents expected colors for all major substances in standard conditions</div>
+        </div>
+        <span class="link-arrow">&#8599;</span>
+      </a>
+
+      <a class="link-card"
+         href="https://www.chromatographyonline.com/view/look-matrix-effects"
+         target="_blank" rel="noopener noreferrer">
+        <div class="link-card-text">
+          <div class="link-title">A Look at Matrix Effects <span class="tag tag-general">General</span></div>
+          <div class="link-source">LCGC International — explains how oils, lipids, and complex matrices interfere with chemical analysis</div>
+        </div>
+        <span class="link-arrow">&#8599;</span>
+      </a>
+
+      <a class="link-card"
+         href="https://pmc.ncbi.nlm.nih.gov/articles/PMC5537996/"
+         target="_blank" rel="noopener noreferrer">
+        <div class="link-card-text">
+          <div class="link-title">Overview of Forensic Drug Testing for Harm Reduction Services <span class="tag tag-general">General</span></div>
+          <div class="link-source">PMC / NIH — documents why colorimetric tests fail with unusual matrices and what's needed for accurate identification</div>
+        </div>
+        <span class="link-arrow">&#8599;</span>
+      </a>
+
+    </div>
+  </div>
+
+</body>
+</html>
