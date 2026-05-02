@@ -13,6 +13,7 @@
       font-family: 'Space Grotesk', sans-serif;
       background: #111008;
       height: 100vh;
+      height: 100dvh;
       width: 100vw;
       overflow: hidden;
       display: grid;
@@ -28,37 +29,30 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      gap: 14px;
+      gap: 12px;
       text-decoration: none;
       cursor: pointer;
       position: relative;
       overflow: hidden;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
+      -webkit-tap-highlight-color: transparent;
     }
 
-    .card:hover { transform: scale(1.02); }
+    .card:hover,
+    .card:active { transform: scale(0.97); }
 
-    /* Each card gets its own warm gradient */
-    .music { background: linear-gradient(135deg, #f5c842 0%, #f0a500 100%); box-shadow: 0 8px 40px rgba(245,200,66,0.35); }
-    .photo { background: linear-gradient(135deg, #ff8c69 0%, #e8553e 100%); box-shadow: 0 8px 40px rgba(255,140,105,0.35); }
-    .drug  { background: linear-gradient(135deg, #7de87a 0%, #3cb85a 100%); box-shadow: 0 8px 40px rgba(125,232,122,0.35); }
-    .web   { background: linear-gradient(135deg, #70c9f5 0%, #3a8fd4 100%); box-shadow: 0 8px 40px rgba(112,201,245,0.35); }
-
-    .card:hover.music { box-shadow: 0 16px 60px rgba(245,200,66,0.55); }
-    .card:hover.photo { box-shadow: 0 16px 60px rgba(255,140,105,0.55); }
-    .card:hover.drug  { box-shadow: 0 16px 60px rgba(125,232,122,0.55); }
-    .card:hover.web   { box-shadow: 0 16px 60px rgba(112,201,245,0.55); }
+    .music { background: linear-gradient(135deg, #f5c842, #f0a500); box-shadow: 0 8px 40px rgba(245,200,66,0.4); }
+    .photo { background: linear-gradient(135deg, #ff8c69, #e8553e); box-shadow: 0 8px 40px rgba(255,140,105,0.4); }
+    .drug  { background: linear-gradient(135deg, #7de87a, #3cb85a); box-shadow: 0 8px 40px rgba(125,232,122,0.4); }
+    .web   { background: linear-gradient(135deg, #70c9f5, #3a8fd4); box-shadow: 0 8px 40px rgba(112,201,245,0.4); }
 
     .icon {
-      font-size: 3rem;
-      filter: drop-shadow(0 2px 8px rgba(0,0,0,0.2));
-      transition: transform 0.2s ease;
+      font-size: clamp(2rem, 6vw, 3.5rem);
+      filter: drop-shadow(0 2px 6px rgba(0,0,0,0.2));
     }
 
-    .card:hover .icon { transform: translateY(-6px) scale(1.1); }
-
     .label {
-      font-size: clamp(1.1rem, 2.8vw, 2rem);
+      font-size: clamp(1rem, 4vw, 1.9rem);
       font-weight: 700;
       color: #111;
       text-align: center;
@@ -67,7 +61,7 @@
     }
 
     .sub {
-      font-size: 0.8rem;
+      font-size: clamp(0.6rem, 1.8vw, 0.8rem);
       font-weight: 400;
       color: rgba(0,0,0,0.5);
       letter-spacing: 0.08em;
@@ -76,21 +70,16 @@
 
     .badge {
       position: absolute;
-      top: 14px;
-      right: 16px;
+      top: 12px;
+      right: 12px;
       background: rgba(0,0,0,0.15);
-      color: rgba(0,0,0,0.5);
-      font-size: 0.6rem;
+      color: rgba(0,0,0,0.45);
+      font-size: clamp(0.5rem, 1.5vw, 0.65rem);
       font-weight: 700;
-      letter-spacing: 0.1em;
+      letter-spacing: 0.08em;
       text-transform: uppercase;
-      padding: 4px 10px;
+      padding: 4px 8px;
       border-radius: 20px;
-    }
-
-    @media (max-width: 560px) {
-      body { grid-template-columns: 1fr; grid-template-rows: repeat(4, 1fr); height: auto; min-height: 100vh; overflow: auto; }
-      .card { min-height: 160px; }
     }
   </style>
 </head>
