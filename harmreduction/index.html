@@ -6,7 +6,9 @@
   <title>Harm Reduction — Two Bottles</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;700;900&display=swap');
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: 'Outfit', sans-serif;
       background: #0d0d0d;
@@ -17,8 +19,10 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: 24px;
+      padding: 60px 24px 40px;
+      gap: 32px;
     }
+
     .back {
       position: fixed;
       top: 20px;
@@ -32,64 +36,79 @@
       transition: color 0.2s;
     }
     .back:hover { color: #fff; }
+
     .accent { color: #2db86a; }
+
     h1 {
-      font-size: clamp(2.5rem, 10vw, 6rem);
+      font-size: clamp(2.2rem, 8vw, 5rem);
       font-weight: 900;
       letter-spacing: -0.04em;
       line-height: 1;
       text-align: center;
     }
-    p {
-      margin-top: 16px;
-      font-size: 1rem;
+
+    .sub {
+      font-size: 0.78rem;
       font-weight: 300;
-      color: rgba(255,255,255,0.4);
-      letter-spacing: 0.06em;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.1em;
       text-transform: uppercase;
+      text-align: center;
+      margin-top: -16px;
     }
+
     .btns {
-      position: fixed;
-      bottom: 32px;
-      left: 50%;
-      transform: translateX(-50%);
-      display: flex;
-      gap: 12px;
-      flex-wrap: wrap;
-      justify-content: center;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 10px;
+      width: 100%;
+      max-width: 480px;
     }
+
     .btn {
       background: linear-gradient(135deg, #2db86a, #0e7a3e);
       color: #fff;
       font-family: 'Outfit', sans-serif;
-      font-size: 1rem;
+      font-size: clamp(0.78rem, 2.5vw, 0.95rem);
       font-weight: 700;
-      letter-spacing: 0.04em;
+      letter-spacing: 0.02em;
       text-decoration: none;
-      padding: 16px 36px;
-      border-radius: 100px;
-      box-shadow: 0 8px 32px rgba(14,122,62,0.5);
-      white-space: nowrap;
+      padding: 14px 10px;
+      border-radius: 14px;
+      box-shadow: 0 6px 24px rgba(14,122,62,0.4);
+      text-align: center;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       -webkit-tap-highlight-color: transparent;
     }
+
     .btn:hover, .btn:active {
       transform: scale(0.97);
-      box-shadow: 0 4px 16px rgba(14,122,62,0.4);
+      box-shadow: 0 3px 12px rgba(14,122,62,0.3);
+    }
+
+    /* Carrier Sources spans full width */
+    .btn-wide {
+      grid-column: 1 / -1;
+    }
+
+    @media (max-width: 360px) {
+      .btns { grid-template-columns: 1fr; }
+      .btn-wide { grid-column: 1; }
     }
   </style>
 </head>
 <body>
   <a class="back" href="/">&#8592; Back</a>
+
   <h1><span class="accent">Harm</span> Reduction</h1>
-  <p>Coming Soon</p>
+  <p class="sub">Resources &amp; Tools</p>
 
   <div class="btns">
     <a class="btn" href="/harmreduction/testing-gelatin">Testing Gelatin</a>
     <a class="btn" href="/harmreduction/test-strips">Test Strips</a>
     <a class="btn" href="/harmreduction/cutting-agents">Cutting Agents</a>
     <a class="btn" href="/harmreduction/testing-log">Testing Log</a>
-    <a class="btn" href="/harmreduction/carrier-sources">Carrier Sources</a>
+    <a class="btn btn-wide" href="/harmreduction/carrier-sources">Carrier Sources</a>
   </div>
 </body>
 </html>
