@@ -5,20 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Web Dev — Two Bottles</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;700;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap');
+
     * { box-sizing: border-box; margin: 0; padding: 0; }
+
     body {
       font-family: 'Outfit', sans-serif;
       background: #0d0d0d;
       color: #fff;
-      min-height: 100vh;
       min-height: 100dvh;
+      padding: 80px 24px 60px;
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
-      padding: 24px;
     }
+
     .back {
       position: fixed;
       top: 20px;
@@ -32,27 +33,131 @@
       transition: color 0.2s;
     }
     .back:hover { color: #fff; }
-    .accent { color: #2898d8; }
+
+    header {
+      text-align: center;
+      margin-bottom: 48px;
+    }
+
     h1 {
-      font-size: clamp(2.5rem, 10vw, 6rem);
+      font-size: clamp(2rem, 8vw, 4rem);
       font-weight: 900;
       letter-spacing: -0.04em;
-      line-height: 1;
-      text-align: center;
+      margin-bottom: 8px;
     }
-    p {
-      margin-top: 16px;
-      font-size: 1rem;
-      font-weight: 300;
-      color: rgba(255,255,255,0.4);
-      letter-spacing: 0.06em;
+
+    .accent { color: #2898d8; }
+
+    .subtitle {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
       text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+    }
+
+    .grid {
+      width: 100%;
+      max-width: 680px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .site-card {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+      padding: 20px 24px;
+      border-radius: 16px;
+      background: #181818;
+      border: 1px solid #2a2a2a;
+      text-decoration: none;
+      color: #fff;
+      transition: border-color 0.2s, transform 0.2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .site-card:hover,
+    .site-card:active {
+      border-color: #2898d8;
+      transform: scale(0.99);
+    }
+
+    .site-info { flex: 1; }
+
+    .site-name {
+      font-size: 1.05rem;
+      font-weight: 700;
+      margin-bottom: 3px;
+    }
+
+    .site-url {
+      font-size: 0.75rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.3);
+      letter-spacing: 0.03em;
+    }
+
+    .site-arrow {
+      color: #2898d8;
+      font-size: 1rem;
+      flex-shrink: 0;
     }
   </style>
 </head>
 <body>
+
   <a class="back" href="/">&#8592; Back</a>
-  <h1><span class="accent">Web</span> Dev</h1>
-  <p>Coming Soon</p>
+
+  <header>
+    <h1><span class="accent">Web</span> Dev</h1>
+    <p class="subtitle">Sites I've Built</p>
+  </header>
+
+  <div class="grid">
+
+    <a class="site-card" href="https://twobottles.store" target="_blank" rel="noopener noreferrer">
+      <div class="site-info">
+        <div class="site-name">Two Bottles</div>
+        <div class="site-url">twobottles.store</div>
+      </div>
+      <span class="site-arrow">&#8599;</span>
+    </a>
+
+    <a class="site-card" href="https://jenniferstewartlaw.com" target="_blank" rel="noopener noreferrer">
+      <div class="site-info">
+        <div class="site-name">Jennifer Stewart Law</div>
+        <div class="site-url">jenniferstewartlaw.com</div>
+      </div>
+      <span class="site-arrow">&#8599;</span>
+    </a>
+
+    <a class="site-card" href="https://noodlednd.me" target="_blank" rel="noopener noreferrer">
+      <div class="site-info">
+        <div class="site-name">Noodle DnD</div>
+        <div class="site-url">noodlednd.me</div>
+      </div>
+      <span class="site-arrow">&#8599;</span>
+    </a>
+
+    <a class="site-card" href="https://twilighttinsel.store" target="_blank" rel="noopener noreferrer">
+      <div class="site-info">
+        <div class="site-name">Twilight Tinsel</div>
+        <div class="site-url">twilighttinsel.store</div>
+      </div>
+      <span class="site-arrow">&#8599;</span>
+    </a>
+
+    <a class="site-card" href="https://wizardshit.store" target="_blank" rel="noopener noreferrer">
+      <div class="site-info">
+        <div class="site-name">Wizard Shit</div>
+        <div class="site-url">wizardshit.store</div>
+      </div>
+      <span class="site-arrow">&#8599;</span>
+    </a>
+
+  </div>
+
 </body>
 </html>
