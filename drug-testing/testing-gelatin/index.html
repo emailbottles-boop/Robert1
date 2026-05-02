@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Testing Gelatin — Harm Reduction</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap');
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: #0d0d0d;
+      color: #fff;
+      min-height: 100dvh;
+      padding: 80px 24px 60px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .back {
+      position: fixed;
+      top: 20px;
+      left: 20px;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.4);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .back:hover { color: #fff; }
+
+    h1 {
+      font-size: clamp(2rem, 8vw, 4rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      text-align: center;
+      margin-bottom: 8px;
+    }
+
+    .accent { color: #2db86a; }
+
+    .subtitle {
+      font-size: 0.75rem;
+      font-weight: 400;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.3);
+      margin-bottom: 48px;
+    }
+
+    .list {
+      width: 100%;
+      max-width: 600px;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+    }
+
+    .link-card {
+      display: flex;
+      flex-direction: column;
+      gap: 4px;
+      padding: 20px 24px;
+      border-radius: 16px;
+      background: #181818;
+      border: 1px solid #2a2a2a;
+      text-decoration: none;
+      color: #fff;
+      transition: border-color 0.2s, transform 0.2s;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    .link-card:hover,
+    .link-card:active {
+      border-color: #2db86a;
+      transform: scale(0.99);
+    }
+
+    .link-title {
+      font-size: 1rem;
+      font-weight: 700;
+    }
+
+    .link-source {
+      font-size: 0.72rem;
+      font-weight: 400;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.04em;
+    }
+
+    .link-arrow {
+      margin-left: auto;
+      color: #2db86a;
+      font-size: 1rem;
+      align-self: center;
+      flex-shrink: 0;
+    }
+
+    .link-card-inner {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .link-card-text { flex: 1; }
+  </style>
+</head>
+<body>
+
+  <a class="back" href="/drug-testing">&#8592; Back</a>
+
+  <h1><span class="accent">Testing</span> Gelatin</h1>
+  <p class="subtitle">Information Archive</p>
+
+  <div class="list">
+
+    <a class="link-card"
+       href="https://web.archive.org/web/20210330220501/https://www.erowid.org/columns/crew/2019/01/reagents-and-lsd-gel-tabs/"
+       target="_blank" rel="noopener noreferrer">
+      <div class="link-card-inner">
+        <div class="link-card-text">
+          <div class="link-title">Reagents &amp; LSD Gel Tabs</div>
+          <div class="link-source">Erowid — via Wayback Machine</div>
+        </div>
+        <span class="link-arrow">&#8599;</span>
+      </div>
+    </a>
+
+  </div>
+
+</body>
+</html>
