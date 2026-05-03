@@ -292,6 +292,8 @@
       <button class="chip" data-filter="reagent" data-value="mandelin">Mandelin</button>
       <button class="chip" data-filter="reagent" data-value="simon">Simon's</button>
       <button class="chip" data-filter="reagent" data-value="froehde">Froehde</button>
+      <button class="chip" data-filter="reagent" data-value="scott">Scott</button>
+      <button class="chip" data-filter="reagent" data-value="morris">Morris</button>
     </div>
   </div>
 
@@ -402,6 +404,15 @@
           <td><span class="rel rel-medium">Medium</span></td>
           <td class="notes">Simon's distinguishes MDMA from MDA (MDA gives no blue). Important for polysubstance samples.</td>
         </tr>
+        <tr data-carrier="alcohol" data-reagent="froehde" data-text="mdma alcohol froehde black">
+          <td class="substance">MDMA</td>
+          <td><span class="carrier-badge alcohol">Alcohol</span></td>
+          <td><span class="reagent-badge">Froehde</span></td>
+          <td><div class="color-cell"><div class="swatch" style="background:#111111"></div>Black</div></td>
+          <td>30 sec – 2 min</td>
+          <td><span class="rel rel-medium">Medium</span></td>
+          <td class="notes">Froehde is used as part of a multi-reagent MDMA protocol alongside Marquis and Simon's to increase confidence. Black with MDMA.</td>
+        </tr>
         <tr data-carrier="oil" data-reagent="marquis" data-text="mdma oil marquis purple black slow">
           <td class="substance">MDMA</td>
           <td><span class="carrier-badge oil">Oil</span></td>
@@ -413,6 +424,15 @@
         </tr>
 
         <!-- Cocaine -->
+        <tr data-carrier="powder" data-reagent="scott" data-text="cocaine powder scott cobalt thiocyanate blue primary test">
+          <td class="substance">Cocaine</td>
+          <td><span class="carrier-badge powder">Powder</span></td>
+          <td><span class="reagent-badge">Scott</span></td>
+          <td><div class="color-cell"><div class="swatch" style="background:#1155cc"></div>Blue → Pink → Blue</div></td>
+          <td>30 sec</td>
+          <td><span class="rel rel-high">High</span></td>
+          <td class="notes">Primary cocaine test (cobalt thiocyanate). Blue precipitate in stage 1, turns pink with HCl in stage 2, blue again in chloroform in stage 3. Most specific colorimetric test for cocaine. Ketamine and heroin can false-positive at high amounts.</td>
+        </tr>
         <tr data-carrier="alcohol" data-reagent="marquis" data-text="cocaine alcohol marquis no reaction pale peach levamisole">
           <td class="substance">Cocaine</td>
           <td><span class="carrier-badge alcohol">Alcohol</span></td>
@@ -422,14 +442,14 @@
           <td><span class="rel rel-medium">Medium</span></td>
           <td class="notes">Pure cocaine HCl gives no Marquis reaction. Modern street supply almost always contains levamisole, which can produce a pale peach or faint orange. Any color means cuts are present.</td>
         </tr>
-        <tr data-carrier="alcohol" data-reagent="mandelin" data-text="cocaine alcohol mandelin no reaction">
+        <tr data-carrier="alcohol" data-reagent="mandelin" data-text="cocaine alcohol mandelin variable orange faint">
           <td class="substance">Cocaine</td>
           <td><span class="carrier-badge alcohol">Alcohol</span></td>
           <td><span class="reagent-badge">Mandelin</span></td>
-          <td><div class="color-cell"><div class="swatch" style="background:#333"></div>No reaction</div></td>
-          <td>—</td>
-          <td><span class="rel rel-medium">Medium</span></td>
-          <td class="notes">Cocaine HCl does not react with Mandelin. Mandelin targets ketones and is most useful for amphetamines and PMA. Any color result indicates an adulterant.</td>
+          <td><div class="color-cell"><div class="swatch" style="background:#aa5500"></div>Faint orange / variable</div></td>
+          <td>1–3 min</td>
+          <td><span class="rel rel-low">Low</span></td>
+          <td class="notes">Cocaine can give a faint orange with Mandelin but the reaction is inconsistent and not specific to cocaine. Not a reliable primary test — use Scott (cobalt thiocyanate) instead. A clear orange reaction suggests amphetamine-type adulterants.</td>
         </tr>
 
         <!-- Heroin / Opioids -->
@@ -442,37 +462,55 @@
           <td><span class="rel rel-medium">Medium</span></td>
           <td class="notes">Heroin's purple can mask fentanyl's yellow-brown in a mixed sample. Do not rely on single reagent for polysubstance opioid tinctures.</td>
         </tr>
-        <tr data-carrier="alcohol" data-reagent="mecke" data-text="heroin opioid alcohol mecke blue black">
+        <tr data-carrier="alcohol" data-reagent="mecke" data-text="heroin opioid alcohol mecke blue green">
           <td class="substance">Heroin</td>
           <td><span class="carrier-badge alcohol">Alcohol</span></td>
           <td><span class="reagent-badge">Mecke</span></td>
-          <td><div class="color-cell"><div class="swatch" style="background:#001133"></div>Blue → Black</div></td>
+          <td><div class="color-cell"><div class="swatch" style="background:#0a5c3e"></div>Blue-Green</div></td>
           <td>1–2 min</td>
           <td><span class="rel rel-medium">Medium</span></td>
-          <td class="notes">Mecke + Marquis together improve opioid identification. Alcohol carrier generally workable.</td>
+          <td class="notes">Heroin/morphine gives blue-green with Mecke (not black — black was incorrect). Mecke + Marquis together improve opioid identification. Alcohol carrier generally workable.</td>
         </tr>
 
         <!-- Fentanyl -->
-        <tr data-carrier="alcohol" data-reagent="froehde" data-text="fentanyl alcohol froehde yellow brown">
+        <tr data-carrier="alcohol" data-reagent="marquis" data-text="fentanyl alcohol marquis orange">
+          <td class="substance">Fentanyl</td>
+          <td><span class="carrier-badge alcohol">Alcohol</span></td>
+          <td><span class="reagent-badge">Marquis</span></td>
+          <td><div class="color-cell"><div class="swatch" style="background:#ff8800"></div>Orange</div></td>
+          <td>1–3 min</td>
+          <td><span class="rel rel-medium">Medium</span></td>
+          <td class="notes">Marquis is the best documented colorimetric test for fentanyl (DEA/ResearchGate). Orange when fentanyl is present alone — masked to purple when heroin is in the same sample. Always pair with a fentanyl test strip.</td>
+        </tr>
+        <tr data-carrier="alcohol" data-reagent="froehde" data-text="fentanyl alcohol froehde little no reaction poorly documented">
           <td class="substance">Fentanyl</td>
           <td><span class="carrier-badge alcohol">Alcohol</span></td>
           <td><span class="reagent-badge">Froehde</span></td>
-          <td><div class="color-cell"><div class="swatch" style="background:#aa7700"></div>Yellow-Brown</div></td>
-          <td>1–3 min</td>
-          <td><span class="rel rel-medium">Medium</span></td>
-          <td class="notes">Froehde is the most useful colorimetric reagent for fentanyl. Still use a fentanyl test strip — reagent alone is not sufficient.</td>
+          <td><div class="color-cell"><div class="swatch" style="background:#333"></div>Little / no reaction</div></td>
+          <td>—</td>
+          <td><span class="rel rel-low">Low</span></td>
+          <td class="notes">Froehde reaction for fentanyl is poorly documented and inconsistent across analogs. Marquis is the more reliable colorimetric option. Do not rely on Froehde to rule out fentanyl — always use a test strip.</td>
         </tr>
-        <tr data-carrier="oil" data-reagent="froehde" data-text="fentanyl oil froehde yellow brown unreliable">
+        <tr data-carrier="oil" data-reagent="marquis" data-text="fentanyl oil marquis orange unreliable">
           <td class="substance">Fentanyl</td>
           <td><span class="carrier-badge oil">Oil</span></td>
-          <td><span class="reagent-badge">Froehde</span></td>
-          <td><div class="color-cell"><div class="swatch" style="background:#aa7700"></div>Yellow-Brown (unreliable)</div></td>
+          <td><span class="reagent-badge">Marquis</span></td>
+          <td><div class="color-cell"><div class="swatch" style="background:#ff8800"></div>Orange (unreliable)</div></td>
           <td>5–20+ min</td>
           <td><span class="rel rel-low">Low</span></td>
-          <td class="notes">Oil matrix makes fentanyl detection critically unreliable by reagent alone. Always use a fentanyl test strip regardless of oil result.</td>
+          <td class="notes">Oil matrix makes colorimetric fentanyl detection critically unreliable. A negative reagent result in oil does not mean fentanyl is absent. Always use a fentanyl test strip regardless of reagent result.</td>
         </tr>
 
         <!-- Ketamine -->
+        <tr data-carrier="powder" data-reagent="morris" data-text="ketamine powder morris violet purple primary specific">
+          <td class="substance">Ketamine</td>
+          <td><span class="carrier-badge powder">Powder</span></td>
+          <td><span class="reagent-badge">Morris</span></td>
+          <td><div class="color-cell"><div class="swatch" style="background:#7733cc"></div>Violet / Purple</div></td>
+          <td>30 sec – 1 min</td>
+          <td><span class="rel rel-high">High</span></td>
+          <td class="notes">Morris is the primary specific reagent for ketamine — currently the only substance known to turn violet with Morris. No need for multiple reagents to confirm. For liquid ketamine, evaporate a small drop and test the residue.</td>
+        </tr>
         <tr data-carrier="alcohol" data-reagent="marquis" data-text="ketamine alcohol marquis orange">
           <td class="substance">Ketamine</td>
           <td><span class="carrier-badge alcohol">Alcohol</span></td>
