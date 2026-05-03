@@ -294,6 +294,7 @@
       <button class="chip" data-filter="reagent" data-value="froehde">Froehde</button>
       <button class="chip" data-filter="reagent" data-value="scott">Scott</button>
       <button class="chip" data-filter="reagent" data-value="morris">Morris</button>
+      <button class="chip" data-filter="reagent" data-value="hofmann">Hofmann</button>
     </div>
   </div>
 
@@ -317,52 +318,61 @@
       <tbody id="table-body">
 
         <!-- LSD -->
-        <tr data-carrier="alcohol" data-reagent="ehrlich" data-text="lsd alcohol ehrlich purple">
+        <tr data-carrier="alcohol" data-reagent="ehrlich" data-text="lsd alcohol ehrlich purple pink">
           <td class="substance">LSD</td>
           <td><span class="carrier-badge alcohol">Alcohol</span></td>
           <td><span class="reagent-badge">Ehrlich</span></td>
-          <td><div class="color-cell"><div class="swatch" style="background:#9b30ff"></div>Purple</div></td>
-          <td>1–3 min</td>
+          <td><div class="color-cell"><div class="swatch" style="background:#9b30ff"></div>Pink → Purple</div></td>
+          <td>2–5 min</td>
           <td><span class="rel rel-medium">Medium</span></td>
-          <td class="notes">Alcohol dilutes reaction — use minimal solvent. May appear slower than blotter test.</td>
+          <td class="notes">Evaporate the alcohol onto blotter or paper before adding Ehrlich — testing liquid directly dilutes the reaction and can cause failure. Ehrlich detects all indoles, not LSD specifically. (DrugCheckingBC SOP 2024, The Level NZ)</td>
         </tr>
-        <tr data-carrier="oil" data-reagent="ehrlich" data-text="lsd oil mct ehrlich purple">
+        <tr data-carrier="alcohol" data-reagent="hofmann" data-text="lsd alcohol hofmann blue purple differentiator">
+          <td class="substance">LSD</td>
+          <td><span class="carrier-badge alcohol">Alcohol</span></td>
+          <td><span class="reagent-badge">Hofmann</span></td>
+          <td><div class="color-cell"><div class="swatch" style="background:#3355ff"></div>Blue / Blue-Purple</div></td>
+          <td>2–5 min</td>
+          <td><span class="rel rel-medium">Medium</span></td>
+          <td class="notes">Hofmann differentiates LSD (blue) from DMT (yellow) and 5-MeO-DMT (green). More specific than Ehrlich for identifying which indole is present. Evaporate alcohol carrier first. (Bunk Police, Test Kit Plus)</td>
+        </tr>
+        <tr data-carrier="oil" data-reagent="ehrlich" data-text="lsd oil mct ehrlich purple inferred">
           <td class="substance">LSD</td>
           <td><span class="carrier-badge oil">Oil (MCT)</span></td>
           <td><span class="reagent-badge">Ehrlich</span></td>
-          <td><div class="color-cell"><div class="swatch" style="background:#9b30ff"></div>Purple (faint)</div></td>
-          <td>3–10 min</td>
+          <td><div class="color-cell"><div class="swatch" style="background:#9b30ff"></div>Purple (faint — inferred)</div></td>
+          <td>Unknown</td>
           <td><span class="rel rel-low">Low</span></td>
-          <td class="notes">Oil matrix significantly slows reaction. Extraction with methanol first is strongly recommended before testing.</td>
+          <td class="notes">No primary source directly documents LSD in oil tested with Ehrlich. This result is inferred from general matrix interference science — oil does not evaporate like alcohol and may prevent adequate reagent contact. Extraction into methanol before testing is strongly recommended.</td>
         </tr>
-        <tr data-carrier="glycerin" data-reagent="ehrlich" data-text="lsd glycerin ehrlich purple">
+        <tr data-carrier="glycerin" data-reagent="ehrlich" data-text="lsd glycerin ehrlich purple inferred">
           <td class="substance">LSD</td>
           <td><span class="carrier-badge glycerin">Glycerin</span></td>
           <td><span class="reagent-badge">Ehrlich</span></td>
-          <td><div class="color-cell"><div class="swatch" style="background:#9b30ff"></div>Purple</div></td>
-          <td>2–5 min</td>
-          <td><span class="rel rel-medium">Medium</span></td>
-          <td class="notes">Glycerin is viscous — mix thoroughly. Result is generally readable but slower than aqueous.</td>
+          <td><div class="color-cell"><div class="swatch" style="background:#9b30ff"></div>Purple (inferred)</div></td>
+          <td>Unknown</td>
+          <td><span class="rel rel-low">Low</span></td>
+          <td class="notes">No primary source directly documents LSD in glycerin tested with Ehrlich. Inferred from DMT-in-PG documentation (Bunk Police) where Ehrlich works but is slower and fainter. Glycerin is more viscous than PG — mix thoroughly and allow extra time.</td>
         </tr>
 
         <!-- Psilocybin -->
-        <tr data-carrier="alcohol" data-reagent="ehrlich" data-text="psilocybin psilocin mushroom alcohol ehrlich blue purple">
+        <tr data-carrier="alcohol" data-reagent="ehrlich" data-text="psilocybin psilocin mushroom alcohol ehrlich pink purple violet">
           <td class="substance">Psilocybin</td>
           <td><span class="carrier-badge alcohol">Alcohol</span></td>
           <td><span class="reagent-badge">Ehrlich</span></td>
-          <td><div class="color-cell"><div class="swatch" style="background:#5555cc"></div>Blue-Purple</div></td>
-          <td>1–3 min</td>
+          <td><div class="color-cell"><div class="swatch" style="background:#9933cc"></div>Pink → Purple/Violet</div></td>
+          <td>1–5 min (pure); up to 30+ min (raw material)</td>
           <td><span class="rel rel-medium">Medium</span></td>
-          <td class="notes">Ehrlich reacts to the indole ring. Alcohol tinctures generally work but concentration affects readability.</td>
+          <td class="notes">Color is pink progressing to purple/violet — not blue. Purified extracts react within minutes; raw mushroom material in complex matrix can take 30+ min. Ehrlich detects all indoles — many mushroom compounds give false positives. Evaporate alcohol carrier before testing. (DrugCheckingBC SOP 2024, PRO Test, Test Kit Plus)</td>
         </tr>
-        <tr data-carrier="oil" data-reagent="ehrlich" data-text="psilocybin oil ehrlich blue purple slow">
+        <tr data-carrier="oil" data-reagent="ehrlich" data-text="psilocybin oil ehrlich pink purple slow inferred">
           <td class="substance">Psilocybin</td>
           <td><span class="carrier-badge oil">Oil</span></td>
           <td><span class="reagent-badge">Ehrlich</span></td>
-          <td><div class="color-cell"><div class="swatch" style="background:#5555cc"></div>Blue-Purple (slow)</div></td>
-          <td>5–15 min</td>
+          <td><div class="color-cell"><div class="swatch" style="background:#9933cc"></div>Pink-Purple (inferred, slow)</div></td>
+          <td>Unknown</td>
           <td><span class="rel rel-low">Low</span></td>
-          <td class="notes">Oil severely limits reagent contact with analyte. No reaction does not mean substance is absent.</td>
+          <td class="notes">No primary source directly documents psilocybin in oil with Ehrlich. Result inferred from general matrix interference science. Oil prevents evaporation and may block reagent contact with analyte. No reaction does not confirm absence.</td>
         </tr>
 
         <!-- DMT -->
@@ -373,7 +383,16 @@
           <td><div class="color-cell"><div class="swatch" style="background:#cc44ff"></div>Purple</div></td>
           <td>1–2 min</td>
           <td><span class="rel rel-medium">Medium</span></td>
-          <td class="notes">Strong indole. Alcohol tincture usually gives clear result at reasonable concentration.</td>
+          <td class="notes">Strong indole, usually gives a clear purple. Also reliable in PG/VG vape liquid — slightly slower and fainter but readable. (Bunk Police)</td>
+        </tr>
+        <tr data-carrier="alcohol" data-reagent="hofmann" data-text="dmt alcohol hofmann yellow differentiator lsd">
+          <td class="substance">DMT</td>
+          <td><span class="carrier-badge alcohol">Alcohol</span></td>
+          <td><span class="reagent-badge">Hofmann</span></td>
+          <td><div class="color-cell"><div class="swatch" style="background:#ddaa00"></div>Yellow</div></td>
+          <td>1–3 min</td>
+          <td><span class="rel rel-medium">Medium</span></td>
+          <td class="notes">Hofmann differentiates DMT (yellow) from LSD (blue) and 5-MeO-DMT (green). This is the key differentiator between indoles — use alongside Ehrlich to identify which indole is present. Also reliable in PG/VG vape liquid. (Bunk Police, Test Kit Plus)</td>
         </tr>
         <tr data-carrier="alcohol" data-reagent="mecke" data-text="dmt alcohol mecke blue green">
           <td class="substance">DMT</td>
@@ -382,7 +401,7 @@
           <td><div class="color-cell"><div class="swatch" style="background:#2266aa"></div>Blue-Green</div></td>
           <td>1–3 min</td>
           <td><span class="rel rel-medium">Medium</span></td>
-          <td class="notes">Use alongside Ehrlich to confirm. Mecke helps differentiate from other indoles.</td>
+          <td class="notes">Valid for alcohol carrier. CRITICAL: propylene glycol (PG/VG vape liquid) interferes with Mecke and produces unreliable results — do NOT use Mecke for DMT vape juice. Use Ehrlich or Hofmann instead. (Bunk Police, documented)</td>
         </tr>
 
         <!-- MDMA -->
@@ -391,9 +410,9 @@
           <td><span class="carrier-badge alcohol">Alcohol</span></td>
           <td><span class="reagent-badge">Marquis</span></td>
           <td><div class="color-cell"><div class="swatch" style="background:#330033"></div>Purple → Black</div></td>
-          <td>30 sec – 2 min</td>
+          <td>Typically within 30 sec</td>
           <td><span class="rel rel-medium">Medium</span></td>
-          <td class="notes">Marquis reacts strongly to MDMA. Alcohol dilution may slow initial color shift.</td>
+          <td class="notes">Read Marquis within ~40 seconds — color changes after that window are oxidation artifacts, not valid. Reaction usually occurs very fast. Alcohol dilution may slow onset slightly. (DanceSafe 2024)</td>
         </tr>
         <tr data-carrier="alcohol" data-reagent="simon" data-text="mdma alcohol simon blue">
           <td class="substance">MDMA</td>
@@ -433,14 +452,14 @@
           <td><span class="rel rel-high">High</span></td>
           <td class="notes">Primary cocaine test (cobalt thiocyanate). Blue precipitate in stage 1, turns pink with HCl in stage 2, blue again in chloroform in stage 3. Most specific colorimetric test for cocaine. Ketamine and heroin can false-positive at high amounts.</td>
         </tr>
-        <tr data-carrier="alcohol" data-reagent="marquis" data-text="cocaine alcohol marquis no reaction pale peach levamisole">
+        <tr data-carrier="alcohol" data-reagent="marquis" data-text="cocaine alcohol marquis no reaction pale peach">
           <td class="substance">Cocaine</td>
           <td><span class="carrier-badge alcohol">Alcohol</span></td>
           <td><span class="reagent-badge">Marquis</span></td>
-          <td><div class="color-cell"><div class="swatch" style="background:#e8c9a0"></div>No reaction / Pale peach</div></td>
+          <td><div class="color-cell"><div class="swatch" style="background:#e8c9a0"></div>No reaction → Pale peach</div></td>
           <td>—</td>
           <td><span class="rel rel-medium">Medium</span></td>
-          <td class="notes">Pure cocaine HCl gives no Marquis reaction. Modern street supply almost always contains levamisole, which can produce a pale peach or faint orange. Any color means cuts are present.</td>
+          <td class="notes">Per DanceSafe's June 2024 update: the full range from no reaction to pale peach/pink is now considered the expected cocaine Marquis result — it no longer reliably indicates levamisole specifically. Do not use Marquis to screen for amphetamine contamination in cocaine. Use Scott test to confirm cocaine presence. (DanceSafe 2024 Reagent Reaction Updates)</td>
         </tr>
         <tr data-carrier="alcohol" data-reagent="mandelin" data-text="cocaine alcohol mandelin variable orange faint">
           <td class="substance">Cocaine</td>
@@ -453,14 +472,14 @@
         </tr>
 
         <!-- Heroin / Opioids -->
-        <tr data-carrier="alcohol" data-reagent="marquis" data-text="heroin opioid alcohol marquis purple">
+        <tr data-carrier="alcohol" data-reagent="marquis" data-text="heroin opioid alcohol marquis purple fentanyl masking">
           <td class="substance">Heroin</td>
           <td><span class="carrier-badge alcohol">Alcohol</span></td>
           <td><span class="reagent-badge">Marquis</span></td>
           <td><div class="color-cell"><div class="swatch" style="background:#662266"></div>Purple</div></td>
-          <td>30 sec – 2 min</td>
+          <td>Within 30–60 sec</td>
           <td><span class="rel rel-medium">Medium</span></td>
-          <td class="notes">Heroin's purple can mask fentanyl's yellow-brown in a mixed sample. Do not rely on single reagent for polysubstance opioid tinctures.</td>
+          <td class="notes">CRITICAL: When fentanyl is present alongside heroin, the orange (fentanyl) and purple (heroin) mask each other — Marquis alone cannot confirm or deny fentanyl contamination in a heroin sample. Always use a fentanyl test strip. Read Marquis within ~40 sec valid window. (DEA Microgram, ResearchGate)</td>
         </tr>
         <tr data-carrier="alcohol" data-reagent="mecke" data-text="heroin opioid alcohol mecke blue green">
           <td class="substance">Heroin</td>
@@ -482,6 +501,15 @@
           <td><span class="rel rel-medium">Medium</span></td>
           <td class="notes">Marquis is the best documented colorimetric test for fentanyl (DEA/ResearchGate). Orange when fentanyl is present alone — masked to purple when heroin is in the same sample. Always pair with a fentanyl test strip.</td>
         </tr>
+        <tr data-carrier="alcohol" data-reagent="mandelin" data-text="fentanyl alcohol mandelin yellow">
+          <td class="substance">Fentanyl</td>
+          <td><span class="carrier-badge alcohol">Alcohol</span></td>
+          <td><span class="reagent-badge">Mandelin</span></td>
+          <td><div class="color-cell"><div class="swatch" style="background:#ccaa00"></div>Yellow</div></td>
+          <td>1–3 min</td>
+          <td><span class="rel rel-low">Low</span></td>
+          <td class="notes">Mandelin gives yellow with fentanyl per Sirchie NARK II color chart. Secondary indicator only — fentanyl test strips are required. Reagents cannot reliably detect fentanyl at the trace doses that cause overdose. (Sirchie NARK II)</td>
+        </tr>
         <tr data-carrier="alcohol" data-reagent="froehde" data-text="fentanyl alcohol froehde little no reaction poorly documented">
           <td class="substance">Fentanyl</td>
           <td><span class="carrier-badge alcohol">Alcohol</span></td>
@@ -489,7 +517,7 @@
           <td><div class="color-cell"><div class="swatch" style="background:#333"></div>Little / no reaction</div></td>
           <td>—</td>
           <td><span class="rel rel-low">Low</span></td>
-          <td class="notes">Froehde reaction for fentanyl is poorly documented and inconsistent across analogs. Marquis is the more reliable colorimetric option. Do not rely on Froehde to rule out fentanyl — always use a test strip.</td>
+          <td class="notes">Froehde reaction for fentanyl is not confirmed by major harm reduction vendors or forensic references. Not reliable for fentanyl detection. Use Marquis as the better colorimetric option and always pair with a fentanyl test strip. (DanceSafe Froehde, PRO Test)</td>
         </tr>
         <tr data-carrier="oil" data-reagent="marquis" data-text="fentanyl oil marquis orange unreliable">
           <td class="substance">Fentanyl</td>
@@ -547,7 +575,27 @@
           <td><div class="color-cell"><div class="swatch" style="background:#1177cc"></div>Blue</div></td>
           <td>1–3 min</td>
           <td><span class="rel rel-medium">Medium</span></td>
-          <td class="notes">Simon's blue confirms secondary amine (meth). Amphetamine gives no reaction — useful for distinguishing the two.</td>
+          <td class="notes">Simon's blue confirms secondary amine (meth). Amphetamine gives no reaction — useful for distinguishing the two. (DanceSafe, Simon's reagent Wikipedia)</td>
+        </tr>
+
+        <!-- Amphetamine -->
+        <tr data-carrier="alcohol" data-reagent="marquis" data-text="amphetamine speed alcohol marquis orange brown same as meth">
+          <td class="substance">Amphetamine</td>
+          <td><span class="carrier-badge alcohol">Alcohol</span></td>
+          <td><span class="reagent-badge">Marquis</span></td>
+          <td><div class="color-cell"><div class="swatch" style="background:#884400"></div>Orange-Brown</div></td>
+          <td>1–2 min</td>
+          <td><span class="rel rel-medium">Medium</span></td>
+          <td class="notes">Marquis cannot distinguish amphetamine from methamphetamine — both give orange-brown. Use Simon's to differentiate: meth = blue, amphetamine = no reaction. (DanceSafe, DEA Microgram 2012)</td>
+        </tr>
+        <tr data-carrier="alcohol" data-reagent="simon" data-text="amphetamine speed alcohol simon no reaction differentiator meth">
+          <td class="substance">Amphetamine</td>
+          <td><span class="carrier-badge alcohol">Alcohol</span></td>
+          <td><span class="reagent-badge">Simon's</span></td>
+          <td><div class="color-cell"><div class="swatch" style="background:#333"></div>No reaction</div></td>
+          <td>—</td>
+          <td><span class="rel rel-high">High</span></td>
+          <td class="notes">Amphetamine (primary amine) gives NO blue with Simon's — this is the key differentiator from methamphetamine (secondary amine = blue). High reliability as a negative indicator. (Simon's reagent Wikipedia, DanceSafe, UNODC)</td>
         </tr>
 
       </tbody>
