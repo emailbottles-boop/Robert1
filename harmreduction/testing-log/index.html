@@ -261,6 +261,9 @@
     <h1><span class="accent">Reagent</span> Testing Log</h1>
     <p class="subtitle">Sequential Testing Reference</p>
     <p class="note">Filter by substance, carrier, or reagent. Each row is one test. Reliability reflects how much the carrier affects the result. This is a living document — results in unusual carriers should be treated as preliminary.</p>
+    <p class="note" style="margin-top:10px; color:rgba(224,92,48,0.7); border:1px solid rgba(224,92,48,0.2); border-radius:8px; padding:10px 14px; background:rgba(224,92,48,0.05);">
+      <strong style="color:#e05c30;">Mixtures mask each other.</strong> Darker colors override lighter ones — MDMA's black will hide a cathinone's yellow, heroin's purple will hide fentanyl's orange. A positive result only confirms the dominant substance. Never rely on a single reagent. Always use a fentanyl test strip for any opioid sample.
+    </p>
   </header>
 
   <!-- Sources button -->
@@ -295,6 +298,7 @@
       <button class="chip" data-filter="reagent" data-value="scott">Scott</button>
       <button class="chip" data-filter="reagent" data-value="morris">Morris</button>
       <button class="chip" data-filter="reagent" data-value="hofmann">Hofmann</button>
+      <button class="chip" data-filter="reagent" data-value="liebermann">Liebermann</button>
     </div>
   </div>
 
@@ -353,6 +357,17 @@
           <td>Unknown</td>
           <td><span class="rel rel-low">Low</span></td>
           <td class="notes">No primary source directly documents LSD in glycerin tested with Ehrlich. Inferred from DMT-in-PG documentation (Bunk Police) where Ehrlich works but is slower and fainter. Glycerin is more viscous than PG — mix thoroughly and allow extra time.</td>
+        </tr>
+
+        <!-- NBOMe / LSD adulterant -->
+        <tr data-carrier="powder" data-reagent="ehrlich" data-text="nbome 25i nbome lsd substitute adulterant ehrlich no reaction blotter">
+          <td class="substance">NBOMe (25i)</td>
+          <td><span class="carrier-badge powder">Powder</span></td>
+          <td><span class="reagent-badge">Ehrlich</span></td>
+          <td><div class="color-cell"><div class="swatch" style="background:#222"></div>No reaction</div></td>
+          <td>—</td>
+          <td><span class="rel rel-high">High</span></td>
+          <td class="notes">NBOMe compounds are phenethylamines, not indoles — Ehrlich gives NO color change. If your blotter gives no Ehrlich reaction, it is not LSD. This is the primary safety test for ruling out NBOMe substitution. LSD gives pink/purple; NBOMe gives nothing. (<a href="https://www.erowid.org/chemicals/lsd/lsd_testing3.shtml" target="_blank" rel="noopener" style="color:#2db86a;">Erowid</a>, <a href="https://drugcheckingbc.ca/wp-content/uploads/sites/4/2024/09/Using-Ehrlich-Reagent-for-Drug-Checking.pdf" target="_blank" rel="noopener" style="color:#2db86a;">DrugCheckingBC SOP 2024</a>)</td>
         </tr>
 
         <!-- Psilocybin -->
@@ -421,7 +436,7 @@
           <td><div class="color-cell"><div class="swatch" style="background:#1177cc"></div>Blue</div></td>
           <td>1–3 min</td>
           <td><span class="rel rel-medium">Medium</span></td>
-          <td class="notes">Simon's distinguishes MDMA from MDA (MDA gives no blue). Important for polysubstance samples.</td>
+          <td class="notes">Simon's distinguishes MDMA from MDA — MDA gives no blue (primary amine). Critical for confirming MDMA vs adulterants. (<a href="https://thelevel.org.nz/news-and-stories/using-reagents-to-test-mdma" target="_blank" rel="noopener" style="color:#2db86a;">The Level NZ</a>, <a href="https://dancesafe.org/product/simons-reagent-testing-kit/" target="_blank" rel="noopener" style="color:#2db86a;">DanceSafe</a>)</td>
         </tr>
         <tr data-carrier="alcohol" data-reagent="froehde" data-text="mdma alcohol froehde black">
           <td class="substance">MDMA</td>
@@ -430,7 +445,7 @@
           <td><div class="color-cell"><div class="swatch" style="background:#111111"></div>Black</div></td>
           <td>30 sec – 2 min</td>
           <td><span class="rel rel-medium">Medium</span></td>
-          <td class="notes">Froehde is used as part of a multi-reagent MDMA protocol alongside Marquis and Simon's to increase confidence. Black with MDMA.</td>
+          <td class="notes">Part of the standard multi-reagent MDMA protocol alongside Marquis and Simon's. Black with MDMA. (<a href="https://bunkpolice.com/how-to-test-mdma/" target="_blank" rel="noopener" style="color:#2db86a;">Bunk Police</a>)</td>
         </tr>
         <tr data-carrier="oil" data-reagent="marquis" data-text="mdma oil marquis purple black slow">
           <td class="substance">MDMA</td>
@@ -442,6 +457,37 @@
           <td class="notes">Oil matrix causes significant delay. A non-reaction within 5 min is not conclusive. Extract before testing if possible.</td>
         </tr>
 
+        <!-- MDA -->
+        <tr data-carrier="alcohol" data-reagent="marquis" data-text="mda sass alcohol marquis purple black same as mdma">
+          <td class="substance">MDA</td>
+          <td><span class="carrier-badge alcohol">Alcohol</span></td>
+          <td><span class="reagent-badge">Marquis</span></td>
+          <td><div class="color-cell"><div class="swatch" style="background:#330033"></div>Purple → Black</div></td>
+          <td>Within 30 sec</td>
+          <td><span class="rel rel-medium">Medium</span></td>
+          <td class="notes">MDA gives the same Marquis result as MDMA — indistinguishable by Marquis alone. Use Simon's to differentiate. (<a href="https://www.protestkit.eu/how-to-test-mda/" target="_blank" rel="noopener" style="color:#2db86a;">PRO Test</a>, <a href="https://www.dea.gov/sites/default/files/pr/microgram-journals/2012/mj9-1_27-32.pdf" target="_blank" rel="noopener" style="color:#2db86a;">DEA Microgram</a>)</td>
+        </tr>
+        <tr data-carrier="alcohol" data-reagent="simon" data-text="mda sass alcohol simon no reaction differentiator mdma">
+          <td class="substance">MDA</td>
+          <td><span class="carrier-badge alcohol">Alcohol</span></td>
+          <td><span class="reagent-badge">Simon's</span></td>
+          <td><div class="color-cell"><div class="swatch" style="background:#333"></div>No reaction</div></td>
+          <td>—</td>
+          <td><span class="rel rel-high">High</span></td>
+          <td class="notes">MDA is a primary amine — Simon's gives NO blue. MDMA gives blue. This is the definitive MDA vs MDMA differentiator. No reaction here means MDA, not MDMA. (<a href="https://en.wikipedia.org/wiki/Simon%27s_reagent" target="_blank" rel="noopener" style="color:#2db86a;">Simon's reagent Wikipedia</a>, <a href="https://dancesafe.org/product/simons-reagent-testing-kit/" target="_blank" rel="noopener" style="color:#2db86a;">DanceSafe</a>)</td>
+        </tr>
+
+        <!-- Methylone / Cathinones (MDMA adulterant) -->
+        <tr data-carrier="powder" data-reagent="marquis" data-text="methylone cathinone bath salts bk-mdma mdma adulterant marquis yellow">
+          <td class="substance">Methylone / Cathinones</td>
+          <td><span class="carrier-badge powder">Powder</span></td>
+          <td><span class="reagent-badge">Marquis</span></td>
+          <td><div class="color-cell"><div class="swatch" style="background:#ddcc00"></div>Brilliant Yellow</div></td>
+          <td>30 sec – 1 min</td>
+          <td><span class="rel rel-high">High</span></td>
+          <td class="notes">Methylone (bk-MDMA) and most synthetic cathinones (bath salts) give a brilliant yellow with Marquis — vs MDMA's black. Key adulterant check: if Marquis gives yellow instead of black, your sample is not MDMA. WARNING: in a mixed sample (50/50 MDMA + methylone), MDMA's black overrides the yellow — mixture masking applies. (<a href="https://bunkpolice.com/how-to-test-mdma/" target="_blank" rel="noopener" style="color:#2db86a;">Bunk Police</a>, DEA Microgram 2012)</td>
+        </tr>
+
         <!-- Cocaine -->
         <tr data-carrier="powder" data-reagent="scott" data-text="cocaine powder scott cobalt thiocyanate blue primary test">
           <td class="substance">Cocaine</td>
@@ -450,7 +496,7 @@
           <td><div class="color-cell"><div class="swatch" style="background:#1155cc"></div>Blue → Pink → Blue</div></td>
           <td>30 sec</td>
           <td><span class="rel rel-high">High</span></td>
-          <td class="notes">Primary cocaine test (cobalt thiocyanate). Blue precipitate in stage 1, turns pink with HCl in stage 2, blue again in chloroform in stage 3. Most specific colorimetric test for cocaine. Ketamine and heroin can false-positive at high amounts.</td>
+          <td class="notes">Primary cocaine test (cobalt thiocyanate). Blue precipitate in stage 1, turns pink with HCl in stage 2, blue again in chloroform in stage 3. Levamisole, phenacetin, caffeine, benzocaine — all negative (no false positive). False positives only at high amounts: ketamine, heroin, diltiazem, lidocaine. (<a href="https://padproject.nd.edu/project-updates/explaining-the-scott-test-for-cocaine/" target="_blank" rel="noopener" style="color:#2db86a;">Notre Dame PAD Project</a>, <a href="https://pubmed.ncbi.nlm.nih.gov/37853665/" target="_blank" rel="noopener" style="color:#2db86a;">PubMed 2024</a>)</td>
         </tr>
         <tr data-carrier="alcohol" data-reagent="marquis" data-text="cocaine alcohol marquis no reaction pale peach">
           <td class="substance">Cocaine</td>
@@ -470,6 +516,24 @@
           <td><span class="rel rel-low">Low</span></td>
           <td class="notes">Cocaine can give a faint orange with Mandelin but the reaction is inconsistent and not specific to cocaine. Not a reliable primary test — use Scott (cobalt thiocyanate) instead. A clear orange reaction suggests amphetamine-type adulterants.</td>
         </tr>
+        <tr data-carrier="powder" data-reagent="liebermann" data-text="cocaine levamisole liebermann green adulterant cut">
+          <td class="substance">Cocaine + Levamisole</td>
+          <td><span class="carrier-badge powder">Powder</span></td>
+          <td><span class="reagent-badge">Liebermann</span></td>
+          <td><div class="color-cell"><div class="swatch" style="background:#228844"></div>Green (levamisole)</div></td>
+          <td>30 sec – 1 min</td>
+          <td><span class="rel rel-high">High</span></td>
+          <td class="notes">Liebermann is the reagent to test for levamisole in cocaine — levamisole gives a green color. The Scott test does NOT detect levamisole (it's a true negative in Scott). Present in the majority of street cocaine. (<a href="https://www.miraculix-lab.de/en/cocaine/how-to-test-cocaine" target="_blank" rel="noopener" style="color:#2db86a;">Miraculix Lab</a>, <a href="https://open.bu.edu/handle/2144/14385" target="_blank" rel="noopener" style="color:#2db86a;">Boston University forensic study</a>)</td>
+        </tr>
+        <tr data-carrier="powder" data-reagent="liebermann" data-text="cocaine phenacetin liebermann dark brown black adulterant cut">
+          <td class="substance">Cocaine + Phenacetin</td>
+          <td><span class="carrier-badge powder">Powder</span></td>
+          <td><span class="reagent-badge">Liebermann</span></td>
+          <td><div class="color-cell"><div class="swatch" style="background:#220000"></div>Dark Brown / Black</div></td>
+          <td>30 sec – 1 min</td>
+          <td><span class="rel rel-high">High</span></td>
+          <td class="notes">Phenacetin (common cocaine cut) gives a dark brown/black with Liebermann. Also negative in the Scott test — only Liebermann catches it. Phenacetin has documented cardiotoxic effects. (<a href="https://www.miraculix-lab.de/en/cocaine/how-to-test-cocaine" target="_blank" rel="noopener" style="color:#2db86a;">Miraculix Lab</a>, <a href="https://open.bu.edu/handle/2144/14385" target="_blank" rel="noopener" style="color:#2db86a;">Boston University forensic study</a>)</td>
+        </tr>
 
         <!-- Heroin / Opioids -->
         <tr data-carrier="alcohol" data-reagent="marquis" data-text="heroin opioid alcohol marquis purple fentanyl masking">
@@ -479,7 +543,7 @@
           <td><div class="color-cell"><div class="swatch" style="background:#662266"></div>Purple</div></td>
           <td>Within 30–60 sec</td>
           <td><span class="rel rel-medium">Medium</span></td>
-          <td class="notes">CRITICAL: When fentanyl is present alongside heroin, the orange (fentanyl) and purple (heroin) mask each other — Marquis alone cannot confirm or deny fentanyl contamination in a heroin sample. Always use a fentanyl test strip. Read Marquis within ~40 sec valid window. (DEA Microgram, ResearchGate)</td>
+          <td class="notes">CRITICAL: When fentanyl is present alongside heroin, the orange (fentanyl) and purple (heroin) mask each other — Marquis alone cannot confirm or deny fentanyl contamination in a heroin sample. Always use a fentanyl test strip. Read Marquis within ~40 sec valid window. (<a href="https://www.researchgate.net/figure/Heroin-with-the-Marquis-reagent_fig1_265608320" target="_blank" rel="noopener" style="color:#2db86a;">ResearchGate</a>, <a href="https://www.dea.gov/sites/default/files/pr/microgram-journals/2012/mj9-1_27-32.pdf" target="_blank" rel="noopener" style="color:#2db86a;">DEA Microgram</a>, <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC10976566/" target="_blank" rel="noopener" style="color:#2db86a;">PMC aptamer study</a>)</td>
         </tr>
         <tr data-carrier="alcohol" data-reagent="mecke" data-text="heroin opioid alcohol mecke blue green">
           <td class="substance">Heroin</td>
@@ -499,7 +563,7 @@
           <td><div class="color-cell"><div class="swatch" style="background:#ff8800"></div>Orange</div></td>
           <td>1–3 min</td>
           <td><span class="rel rel-medium">Medium</span></td>
-          <td class="notes">Marquis is the best documented colorimetric test for fentanyl (DEA/ResearchGate). Orange when fentanyl is present alone — masked to purple when heroin is in the same sample. Always pair with a fentanyl test strip.</td>
+          <td class="notes">Marquis is the best documented colorimetric test for fentanyl. Orange when fentanyl is alone — masked when heroin is present (heroin's purple dominates). Always pair with a fentanyl test strip — reagents cannot detect fentanyl at trace lethal doses. (<a href="https://www.researchgate.net/figure/Fentanyl-with-the-Marquis-reagent_fig2_265608320" target="_blank" rel="noopener" style="color:#2db86a;">ResearchGate</a>, <a href="https://www.dea.gov/sites/default/files/pr/microgram-journals/2012/mj9-1_27-32.pdf" target="_blank" rel="noopener" style="color:#2db86a;">DEA Microgram</a>)</td>
         </tr>
         <tr data-carrier="alcohol" data-reagent="mandelin" data-text="fentanyl alcohol mandelin yellow">
           <td class="substance">Fentanyl</td>
@@ -508,7 +572,7 @@
           <td><div class="color-cell"><div class="swatch" style="background:#ccaa00"></div>Yellow</div></td>
           <td>1–3 min</td>
           <td><span class="rel rel-low">Low</span></td>
-          <td class="notes">Mandelin gives yellow with fentanyl per Sirchie NARK II color chart. Secondary indicator only — fentanyl test strips are required. Reagents cannot reliably detect fentanyl at the trace doses that cause overdose. (Sirchie NARK II)</td>
+          <td class="notes">Yellow with fentanyl per Sirchie NARK II. Secondary indicator only — reagents cannot detect fentanyl at the trace doses that cause overdose. Always use a fentanyl test strip. (<a href="https://www.sirchie.com/media/resourcecenter/item/n/a/nark20016_621eng-rev12.pdf" target="_blank" rel="noopener" style="color:#2db86a;">Sirchie NARK II chart</a>)</td>
         </tr>
         <tr data-carrier="alcohol" data-reagent="froehde" data-text="fentanyl alcohol froehde little no reaction poorly documented">
           <td class="substance">Fentanyl</td>
