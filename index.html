@@ -11,7 +11,7 @@
 
     body {
       font-family: 'Outfit', sans-serif;
-      background: #0d0d0d;
+      background: #0a0608;
       color: #fff;
       height: 100vh;
       height: 100dvh;
@@ -23,41 +23,53 @@
       gap: 10px;
     }
 
-    /* ── Header ── */
-    header {
-      display: flex;
-      align-items: center;
-      gap: 16px;
-      padding: 10px 16px;
-      background: #141414;
-      border-radius: 20px;
-      flex-shrink: 0;
+    /* ── Hero photo ── */
+    .hero {
+      position: relative;
+      flex: 0 0 44%;
+      border-radius: 22px;
+      overflow: hidden;
+      box-shadow: 0 0 60px rgba(180,30,30,0.35);
     }
 
-    .avatar {
-      width: clamp(52px, 10vw, 72px);
-      height: clamp(52px, 10vw, 72px);
-      border-radius: 50%;
+    .hero img {
+      width: 100%;
+      height: 100%;
       object-fit: cover;
-      object-position: center top;
-      flex-shrink: 0;
-      border: 2px solid #2a2a2a;
+      object-position: center 20%;
+      display: block;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to top,
+        rgba(10,4,6,0.88) 0%,
+        rgba(100,10,10,0.15) 50%,
+        transparent 100%);
+    }
+
+    .hero-text {
+      position: absolute;
+      bottom: 20px;
+      left: 22px;
     }
 
     .welcome-sub {
-      font-size: clamp(0.58rem, 1.5vw, 0.7rem);
+      font-size: clamp(0.6rem, 1.8vw, 0.72rem);
       font-weight: 400;
-      letter-spacing: 0.14em;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.28);
-      margin-bottom: 3px;
+      color: rgba(255,100,100,0.7);
+      margin-bottom: 5px;
     }
 
     h1 {
-      font-size: clamp(1.2rem, 4.5vw, 2rem);
+      font-size: clamp(1.7rem, 6.5vw, 3rem);
       font-weight: 900;
       letter-spacing: -0.04em;
-      line-height: 1.05;
+      line-height: 1;
+      text-shadow: 0 0 40px rgba(200,40,40,0.6);
     }
 
     /* ── Card grid ── */
@@ -71,7 +83,7 @@
     }
 
     .card {
-      border-radius: 20px;
+      border-radius: 22px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -80,17 +92,17 @@
       text-decoration: none;
       cursor: pointer;
       overflow: hidden;
-      transition: transform 0.2s ease;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       -webkit-tap-highlight-color: transparent;
     }
 
     .card:hover,
     .card:active { transform: scale(0.97); }
 
-    .music { background: linear-gradient(150deg, #e8a020, #b86800); box-shadow: 0 8px 40px rgba(184,104,0,0.45); }
-    .photo { background: linear-gradient(150deg, #e05c30, #a82a0a); box-shadow: 0 8px 40px rgba(168,42,10,0.45); }
-    .drug  { background: linear-gradient(150deg, #2db86a, #0e7a3e); box-shadow: 0 8px 40px rgba(14,122,62,0.45); }
-    .web   { background: linear-gradient(150deg, #2898d8, #0a5ea8); box-shadow: 0 8px 40px rgba(10,94,168,0.45); }
+    .music { background: linear-gradient(150deg, #e8a020, #9a5500); box-shadow: 0 8px 32px rgba(184,104,0,0.4); }
+    .photo { background: linear-gradient(150deg, #cc3318, #7a1008); box-shadow: 0 8px 32px rgba(180,30,20,0.5); }
+    .drug  { background: linear-gradient(150deg, #2db86a, #0a5c30); box-shadow: 0 8px 32px rgba(14,122,62,0.4); }
+    .web   { background: linear-gradient(150deg, #2878c8, #0a4888); box-shadow: 0 8px 32px rgba(10,80,168,0.4); }
 
     .label {
       font-size: clamp(1rem, 3.5vw, 1.9rem);
@@ -104,7 +116,7 @@
     .sub {
       font-size: clamp(0.55rem, 1.4vw, 0.72rem);
       font-weight: 300;
-      color: rgba(255,255,255,0.55);
+      color: rgba(255,255,255,0.5);
       letter-spacing: 0.12em;
       text-transform: uppercase;
       margin-top: 5px;
@@ -114,13 +126,14 @@
 </head>
 <body>
 
-  <header>
-    <img class="avatar" src="/image-1777877237158.jpg" alt="Robert" />
-    <div>
+  <div class="hero">
+    <img src="/image-1777877237158.jpg" alt="Robert" />
+    <div class="hero-overlay"></div>
+    <div class="hero-text">
       <p class="welcome-sub">Welcome to</p>
       <h1>Robert's Website</h1>
     </div>
-  </header>
+  </div>
 
   <div class="grid">
 
