@@ -251,6 +251,151 @@
       color: rgba(255,255,255,0.2);
       font-size: 0.88rem;
     }
+
+    /* ── Reverse Lookup Panel ── */
+    .lookup-panel {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto 32px;
+      background: #141414;
+      border: 1px solid #252525;
+      border-radius: 20px;
+      padding: 24px 24px 20px;
+    }
+    .lk-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 4px;
+    }
+    .lk-title {
+      font-size: 1rem;
+      font-weight: 900;
+      letter-spacing: -0.02em;
+    }
+    .lk-title .accent { color: #2db86a; }
+    .lk-subtitle {
+      font-size: 0.7rem;
+      color: rgba(255,255,255,0.25);
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin-bottom: 20px;
+    }
+    .lk-row {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-bottom: 8px;
+    }
+    .lk-label {
+      font-size: 0.62rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.25);
+      width: 88px;
+      flex-shrink: 0;
+    }
+    .lk-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.7rem;
+      font-weight: 700;
+      padding: 4px 10px;
+      border-radius: 100px;
+      border: 1px solid #2a2a2a;
+      background: #181818;
+      color: rgba(255,255,255,0.35);
+      cursor: pointer;
+      transition: all 0.15s ease;
+      -webkit-tap-highlight-color: transparent;
+    }
+    .lk-chip:hover { border-color: #2db86a; color: #fff; }
+    .lk-chip.active { background: #1a3d28; border-color: #2db86a; color: #2db86a; }
+    .lk-swatch {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      flex-shrink: 0;
+      border: 1px solid rgba(255,255,255,0.12);
+    }
+    .lk-divider {
+      border: none;
+      border-top: 1px solid #1e1e1e;
+      margin: 14px 0;
+    }
+    .lk-clear {
+      font-family: 'Outfit', sans-serif;
+      font-size: 0.65rem;
+      font-weight: 700;
+      color: rgba(255,255,255,0.2);
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 4px 8px;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      transition: color 0.15s;
+    }
+    .lk-clear:hover { color: #e05c30; }
+    .lk-results { margin-top: 4px; }
+    .lk-results-title {
+      font-size: 0.6rem;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.2);
+      margin-bottom: 10px;
+    }
+    .lk-result-card {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 12px 16px;
+      background: #181818;
+      border: 1px solid #2a2a2a;
+      border-left: 3px solid #2db86a;
+      border-radius: 12px;
+      margin-bottom: 8px;
+    }
+    .lk-result-name {
+      font-size: 0.9rem;
+      font-weight: 700;
+      min-width: 150px;
+      flex-shrink: 0;
+      padding-top: 2px;
+    }
+    .lk-result-reagents {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+    }
+    .lk-pill {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      font-size: 0.62rem;
+      font-weight: 700;
+      padding: 3px 8px;
+      border-radius: 20px;
+      background: #222;
+      border: 1px solid #2a2a2a;
+      color: rgba(255,255,255,0.35);
+    }
+    .lk-pill.matched {
+      border-color: rgba(45,184,106,0.35);
+      background: rgba(45,184,106,0.1);
+      color: #2db86a;
+    }
+    .lk-empty {
+      text-align: center;
+      padding: 20px;
+      color: rgba(255,255,255,0.18);
+      font-size: 0.82rem;
+    }
   </style>
 </head>
 <body>
@@ -272,6 +417,100 @@
        style="display:inline-block; background:linear-gradient(135deg,#2db86a,#0e7a3e); color:#fff; font-family:'Outfit',sans-serif; font-size:0.85rem; font-weight:700; letter-spacing:0.05em; text-decoration:none; padding:12px 28px; border-radius:100px; box-shadow:0 6px 24px rgba(14,122,62,0.4); -webkit-tap-highlight-color:transparent;">
       Where does this data come from? &#8599;
     </a>
+  </div>
+
+  <!-- Color Reverse Lookup -->
+  <div class="lookup-panel">
+    <div class="lk-header">
+      <p class="lk-title"><span class="accent">Color</span> Reverse Lookup</p>
+      <button class="lk-clear" id="lk-clear-btn">Clear all</button>
+    </div>
+    <p class="lk-subtitle">Pick the colors you observed — matching substances appear below</p>
+
+    <div class="lk-row">
+      <span class="lk-label">Carrier</span>
+      <button class="lk-chip active" data-lk="carrier" data-val="">Any</button>
+      <button class="lk-chip" data-lk="carrier" data-val="alcohol">Alcohol</button>
+      <button class="lk-chip" data-lk="carrier" data-val="oil">Oil</button>
+      <button class="lk-chip" data-lk="carrier" data-val="glycerin">Glycerin</button>
+      <button class="lk-chip" data-lk="carrier" data-val="water">Water</button>
+      <button class="lk-chip" data-lk="carrier" data-val="powder">Powder</button>
+    </div>
+
+    <hr class="lk-divider">
+
+    <div class="lk-row">
+      <span class="lk-label">Ehrlich</span>
+      <button class="lk-chip active" data-lk="reagent" data-reagent="ehrlich" data-val="">Not tested</button>
+      <button class="lk-chip" data-lk="reagent" data-reagent="ehrlich" data-val="pink-purple"><span class="lk-swatch" style="background:#9933cc"></span>Pink → Purple</button>
+      <button class="lk-chip" data-lk="reagent" data-reagent="ehrlich" data-val="no-reaction"><span class="lk-swatch" style="background:#444;border-color:#666"></span>No reaction</button>
+    </div>
+    <div class="lk-row">
+      <span class="lk-label">Hofmann</span>
+      <button class="lk-chip active" data-lk="reagent" data-reagent="hofmann" data-val="">Not tested</button>
+      <button class="lk-chip" data-lk="reagent" data-reagent="hofmann" data-val="blue"><span class="lk-swatch" style="background:#3355ff"></span>Blue</button>
+      <button class="lk-chip" data-lk="reagent" data-reagent="hofmann" data-val="yellow"><span class="lk-swatch" style="background:#ddaa00"></span>Yellow</button>
+      <button class="lk-chip" data-lk="reagent" data-reagent="hofmann" data-val="no-reaction"><span class="lk-swatch" style="background:#444;border-color:#666"></span>No reaction</button>
+    </div>
+    <div class="lk-row">
+      <span class="lk-label">Marquis</span>
+      <button class="lk-chip active" data-lk="reagent" data-reagent="marquis" data-val="">Not tested</button>
+      <button class="lk-chip" data-lk="reagent" data-reagent="marquis" data-val="purple-black"><span class="lk-swatch" style="background:#440044"></span>Purple → Black</button>
+      <button class="lk-chip" data-lk="reagent" data-reagent="marquis" data-val="orange"><span class="lk-swatch" style="background:#ff8800"></span>Orange</button>
+      <button class="lk-chip" data-lk="reagent" data-reagent="marquis" data-val="orange-brown"><span class="lk-swatch" style="background:#884400"></span>Orange-Brown</button>
+      <button class="lk-chip" data-lk="reagent" data-reagent="marquis" data-val="purple"><span class="lk-swatch" style="background:#662266"></span>Purple</button>
+      <button class="lk-chip" data-lk="reagent" data-reagent="marquis" data-val="yellow"><span class="lk-swatch" style="background:#ddcc00"></span>Yellow</button>
+      <button class="lk-chip" data-lk="reagent" data-reagent="marquis" data-val="no-reaction"><span class="lk-swatch" style="background:#d4b896"></span>No reaction / Peach</button>
+    </div>
+    <div class="lk-row">
+      <span class="lk-label">Mecke</span>
+      <button class="lk-chip active" data-lk="reagent" data-reagent="mecke" data-val="">Not tested</button>
+      <button class="lk-chip" data-lk="reagent" data-reagent="mecke" data-val="blue-green"><span class="lk-swatch" style="background:#2266aa"></span>Blue-Green</button>
+      <button class="lk-chip" data-lk="reagent" data-reagent="mecke" data-val="no-reaction"><span class="lk-swatch" style="background:#444;border-color:#666"></span>No reaction</button>
+    </div>
+    <div class="lk-row">
+      <span class="lk-label">Mandelin</span>
+      <button class="lk-chip active" data-lk="reagent" data-reagent="mandelin" data-val="">Not tested</button>
+      <button class="lk-chip" data-lk="reagent" data-reagent="mandelin" data-val="yellow"><span class="lk-swatch" style="background:#ccaa00"></span>Yellow</button>
+      <button class="lk-chip" data-lk="reagent" data-reagent="mandelin" data-val="orange"><span class="lk-swatch" style="background:#aa5500"></span>Orange</button>
+      <button class="lk-chip" data-lk="reagent" data-reagent="mandelin" data-val="no-reaction"><span class="lk-swatch" style="background:#444;border-color:#666"></span>No reaction</button>
+    </div>
+    <div class="lk-row">
+      <span class="lk-label">Simon's</span>
+      <button class="lk-chip active" data-lk="reagent" data-reagent="simon" data-val="">Not tested</button>
+      <button class="lk-chip" data-lk="reagent" data-reagent="simon" data-val="blue"><span class="lk-swatch" style="background:#1177cc"></span>Blue</button>
+      <button class="lk-chip" data-lk="reagent" data-reagent="simon" data-val="no-reaction"><span class="lk-swatch" style="background:#444;border-color:#666"></span>No reaction</button>
+    </div>
+    <div class="lk-row">
+      <span class="lk-label">Froehde</span>
+      <button class="lk-chip active" data-lk="reagent" data-reagent="froehde" data-val="">Not tested</button>
+      <button class="lk-chip" data-lk="reagent" data-reagent="froehde" data-val="black"><span class="lk-swatch" style="background:#111;border-color:#555"></span>Black</button>
+      <button class="lk-chip" data-lk="reagent" data-reagent="froehde" data-val="no-reaction"><span class="lk-swatch" style="background:#444;border-color:#666"></span>No reaction</button>
+    </div>
+    <div class="lk-row">
+      <span class="lk-label">Scott</span>
+      <button class="lk-chip active" data-lk="reagent" data-reagent="scott" data-val="">Not tested</button>
+      <button class="lk-chip" data-lk="reagent" data-reagent="scott" data-val="blue-pink-blue"><span class="lk-swatch" style="background:#1155cc"></span>Blue → Pink → Blue</button>
+      <button class="lk-chip" data-lk="reagent" data-reagent="scott" data-val="no-reaction"><span class="lk-swatch" style="background:#444;border-color:#666"></span>No reaction</button>
+    </div>
+    <div class="lk-row">
+      <span class="lk-label">Morris</span>
+      <button class="lk-chip active" data-lk="reagent" data-reagent="morris" data-val="">Not tested</button>
+      <button class="lk-chip" data-lk="reagent" data-reagent="morris" data-val="violet"><span class="lk-swatch" style="background:#7733cc"></span>Violet / Purple</button>
+      <button class="lk-chip" data-lk="reagent" data-reagent="morris" data-val="no-reaction"><span class="lk-swatch" style="background:#444;border-color:#666"></span>No reaction</button>
+    </div>
+    <div class="lk-row">
+      <span class="lk-label">Liebermann</span>
+      <button class="lk-chip active" data-lk="reagent" data-reagent="liebermann" data-val="">Not tested</button>
+      <button class="lk-chip" data-lk="reagent" data-reagent="liebermann" data-val="green"><span class="lk-swatch" style="background:#228844"></span>Green</button>
+      <button class="lk-chip" data-lk="reagent" data-reagent="liebermann" data-val="dark-brown"><span class="lk-swatch" style="background:#331100;border-color:#552200"></span>Dark Brown / Black</button>
+      <button class="lk-chip" data-lk="reagent" data-reagent="liebermann" data-val="no-reaction"><span class="lk-swatch" style="background:#444;border-color:#666"></span>No reaction</button>
+    </div>
+
+    <hr class="lk-divider">
+    <div id="lk-results">
+      <p class="lk-empty">Select a color above to see matching substances.</p>
+    </div>
   </div>
 
   <!-- Filters -->
@@ -718,6 +957,148 @@
       });
 
       emptyState.style.display = visible === 0 ? 'block' : 'none';
+    }
+
+    // ── Color Reverse Lookup ──────────────────────────────────────
+
+    const LK_DATA = [
+      // LSD
+      { s:'LSD',        c:'alcohol',  r:'ehrlich', ck:'pink-purple',   label:'Pink → Purple' },
+      { s:'LSD',        c:'alcohol',  r:'hofmann', ck:'blue',          label:'Blue / Blue-Purple' },
+      { s:'LSD',        c:'oil',      r:'ehrlich', ck:'pink-purple',   label:'Purple (faint, inferred)' },
+      { s:'LSD',        c:'glycerin', r:'ehrlich', ck:'pink-purple',   label:'Purple (inferred)' },
+      // Psilocybin
+      { s:'Psilocybin', c:'alcohol',  r:'ehrlich', ck:'pink-purple',   label:'Pink → Purple/Violet' },
+      { s:'Psilocybin', c:'oil',      r:'ehrlich', ck:'pink-purple',   label:'Pink-Purple (inferred)' },
+      // DMT
+      { s:'DMT',        c:'alcohol',  r:'ehrlich', ck:'pink-purple',   label:'Purple' },
+      { s:'DMT',        c:'alcohol',  r:'hofmann', ck:'yellow',        label:'Yellow' },
+      { s:'DMT',        c:'alcohol',  r:'mecke',   ck:'blue-green',    label:'Blue-Green' },
+      // NBOMe
+      { s:'NBOMe (25i)',c:'powder',   r:'ehrlich', ck:'no-reaction',   label:'No reaction' },
+      // MDMA
+      { s:'MDMA',       c:'alcohol',  r:'marquis', ck:'purple-black',  label:'Purple → Black' },
+      { s:'MDMA',       c:'alcohol',  r:'simon',   ck:'blue',          label:'Blue' },
+      { s:'MDMA',       c:'alcohol',  r:'froehde', ck:'black',         label:'Black' },
+      { s:'MDMA',       c:'oil',      r:'marquis', ck:'purple-black',  label:'Purple → Black (slow)' },
+      // MDA
+      { s:'MDA',        c:'alcohol',  r:'marquis', ck:'purple-black',  label:'Purple → Black' },
+      { s:'MDA',        c:'alcohol',  r:'simon',   ck:'no-reaction',   label:'No reaction' },
+      // Methylone / Cathinones
+      { s:'Methylone / Cathinones', c:'powder', r:'marquis', ck:'yellow', label:'Brilliant Yellow' },
+      // Cocaine
+      { s:'Cocaine',    c:'powder',   r:'scott',    ck:'blue-pink-blue', label:'Blue → Pink → Blue' },
+      { s:'Cocaine',    c:'alcohol',  r:'marquis',  ck:'no-reaction',    label:'No reaction / Pale peach' },
+      { s:'Cocaine',    c:'alcohol',  r:'mandelin', ck:'orange',         label:'Faint orange / variable' },
+      // Cocaine cuts
+      { s:'Cocaine + Levamisole', c:'powder', r:'liebermann', ck:'green',      label:'Green' },
+      { s:'Cocaine + Phenacetin', c:'powder', r:'liebermann', ck:'dark-brown', label:'Dark Brown / Black' },
+      // Heroin
+      { s:'Heroin',     c:'alcohol',  r:'marquis', ck:'purple',        label:'Purple' },
+      { s:'Heroin',     c:'alcohol',  r:'mecke',   ck:'blue-green',    label:'Blue-Green' },
+      // Fentanyl
+      { s:'Fentanyl',   c:'alcohol',  r:'marquis',  ck:'orange',      label:'Orange' },
+      { s:'Fentanyl',   c:'alcohol',  r:'mandelin', ck:'yellow',      label:'Yellow' },
+      { s:'Fentanyl',   c:'alcohol',  r:'froehde',  ck:'no-reaction', label:'No reaction' },
+      { s:'Fentanyl',   c:'oil',      r:'marquis',  ck:'orange',      label:'Orange (unreliable)' },
+      // Ketamine
+      { s:'Ketamine',   c:'powder',   r:'morris',   ck:'violet',  label:'Violet / Purple' },
+      { s:'Ketamine',   c:'alcohol',  r:'marquis',  ck:'orange',  label:'Orange' },
+      { s:'Ketamine',   c:'water',    r:'marquis',  ck:'orange',  label:'Orange' },
+      // Methamphetamine
+      { s:'Methamphetamine', c:'alcohol', r:'marquis', ck:'orange-brown', label:'Orange-Brown' },
+      { s:'Methamphetamine', c:'alcohol', r:'simon',   ck:'blue',         label:'Blue' },
+      // Amphetamine
+      { s:'Amphetamine', c:'alcohol', r:'marquis', ck:'orange-brown', label:'Orange-Brown' },
+      { s:'Amphetamine', c:'alcohol', r:'simon',   ck:'no-reaction',  label:'No reaction' },
+    ];
+
+    const LK_SWATCHES = {
+      'pink-purple':   '#9933cc',
+      'blue':          '#3355ff',
+      'yellow':        '#ddaa00',
+      'blue-green':    '#2266aa',
+      'purple-black':  '#440044',
+      'orange':        '#ff8800',
+      'orange-brown':  '#884400',
+      'purple':        '#662266',
+      'no-reaction':   '#444',
+      'black':         '#111',
+      'blue-pink-blue':'#1155cc',
+      'violet':        '#7733cc',
+      'green':         '#228844',
+      'dark-brown':    '#331100',
+    };
+
+    let lkCarrier = '';
+    const lkReagents = {};
+
+    document.querySelectorAll('[data-lk]').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const type    = btn.dataset.lk;
+        const val     = btn.dataset.val;
+        const reagent = btn.dataset.reagent;
+
+        if (type === 'carrier') {
+          document.querySelectorAll('[data-lk="carrier"]').forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          lkCarrier = val;
+        } else {
+          document.querySelectorAll(`[data-lk="reagent"][data-reagent="${reagent}"]`).forEach(b => b.classList.remove('active'));
+          btn.classList.add('active');
+          lkReagents[reagent] = val;
+        }
+        runLookup();
+      });
+    });
+
+    document.getElementById('lk-clear-btn').addEventListener('click', () => {
+      lkCarrier = '';
+      Object.keys(lkReagents).forEach(k => lkReagents[k] = '');
+      document.querySelectorAll('[data-lk="carrier"]').forEach(b => b.classList.toggle('active', b.dataset.val === ''));
+      document.querySelectorAll('[data-lk="reagent"]').forEach(b => b.classList.toggle('active', b.dataset.val === ''));
+      document.getElementById('lk-results').innerHTML = '<p class="lk-empty">Select a color above to see matching substances.</p>';
+    });
+
+    function runLookup() {
+      const active = Object.entries(lkReagents).filter(([, ck]) => ck !== '');
+      const el = document.getElementById('lk-results');
+
+      if (active.length === 0) {
+        el.innerHTML = '<p class="lk-empty">Select a color above to see matching substances.</p>';
+        return;
+      }
+
+      const pool = lkCarrier ? LK_DATA.filter(d => d.c === lkCarrier) : LK_DATA;
+      const substances = [...new Set(pool.map(d => d.s))];
+
+      const matches = substances.filter(sub =>
+        active.every(([r, ck]) => pool.some(d => d.s === sub && d.r === r && d.ck === ck))
+      );
+
+      if (matches.length === 0) {
+        el.innerHTML = '<p class="lk-empty">No match for that combination. Try removing a selection or changing the carrier.</p>';
+        return;
+      }
+
+      el.innerHTML = `
+        <p class="lk-results-title">${matches.length} possible match${matches.length !== 1 ? 'es' : ''}</p>
+        ${matches.map(sub => {
+          const subRows = pool.filter(d => d.s === sub);
+          const pills = subRows.map(d => {
+            const isMatch = active.some(([r, ck]) => r === d.r && ck === d.ck);
+            const sw = LK_SWATCHES[d.ck] || '#444';
+            const name = d.r.charAt(0).toUpperCase() + d.r.slice(1);
+            return `<span class="lk-pill${isMatch ? ' matched' : ''}">
+              <span class="lk-swatch" style="background:${sw}"></span>${name}: ${d.label}
+            </span>`;
+          }).join('');
+          return `<div class="lk-result-card">
+            <span class="lk-result-name">${sub}</span>
+            <div class="lk-result-reagents">${pills}</div>
+          </div>`;
+        }).join('')}
+      `;
     }
   </script>
 
