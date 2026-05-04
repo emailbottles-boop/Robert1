@@ -11,6 +11,8 @@
 
     body {
       font-family: 'Outfit', sans-serif;
+      background: #080306;
+      color: #fff;
       height: 100vh;
       height: 100dvh;
       width: 100vw;
@@ -18,25 +20,56 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      justify-content: center;
       position: relative;
     }
 
-    .bg {
-      position: fixed;
-      inset: 0;
-      background-image: url('/image-1777877237158.jpg');
-      background-size: cover;
-      background-position: center 20%;
-      filter: brightness(0.45) saturate(0.7);
-      transform: scale(1.05);
+    /* Photo sits at top, fades out at bottom */
+    .photo-wrap {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: min(340px, 80vw);
+      height: 52%;
       z-index: 0;
     }
 
-    .bg-overlay {
-      position: fixed;
+    .photo-wrap img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 15%;
+      display: block;
+      border-radius: 0 0 20px 20px;
+    }
+
+    /* Fade photo out toward its bottom */
+    .photo-wrap::after {
+      content: '';
+      position: absolute;
       inset: 0;
-      background: radial-gradient(ellipse at center, rgba(60,0,0,0.55) 0%, rgba(5,0,0,0.82) 100%);
+      border-radius: 0 0 20px 20px;
+      background: linear-gradient(
+        to bottom,
+        transparent 30%,
+        rgba(8,3,6,0.7) 70%,
+        #080306 100%
+      );
+    }
+
+    /* Dark sides to blend into bg */
+    .photo-wrap::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      border-radius: 0 0 20px 20px;
+      background: linear-gradient(
+        to right,
+        rgba(8,3,6,0.5) 0%,
+        transparent 20%,
+        transparent 80%,
+        rgba(8,3,6,0.5) 100%
+      );
       z-index: 1;
     }
 
@@ -46,9 +79,11 @@
       display: flex;
       flex-direction: column;
       align-items: center;
-      gap: clamp(28px, 6vh, 52px);
+      justify-content: flex-end;
+      height: 100%;
       width: 100%;
-      padding: 0 20px;
+      padding: 0 20px 28px;
+      gap: 20px;
     }
 
     .title-block {
@@ -56,34 +91,34 @@
     }
 
     .welcome-sub {
-      font-size: clamp(0.6rem, 1.8vw, 0.72rem);
+      font-size: clamp(0.55rem, 1.6vw, 0.68rem);
       font-weight: 400;
       letter-spacing: 0.25em;
       text-transform: uppercase;
-      color: rgba(220, 80, 80, 0.65);
-      margin-bottom: 6px;
+      color: rgba(220, 80, 80, 0.6);
+      margin-bottom: 4px;
     }
 
     h1 {
-      font-size: clamp(2rem, 7vw, 3.8rem);
+      font-size: clamp(1.9rem, 6.5vw, 3.4rem);
       font-weight: 900;
       letter-spacing: -0.04em;
       color: #fff;
-      text-shadow: 0 0 60px rgba(180, 20, 20, 0.8);
+      text-shadow: 0 0 50px rgba(160, 15, 15, 0.9);
       line-height: 1;
     }
 
     .grid {
       display: grid;
       grid-template-columns: 1fr 1fr;
-      gap: clamp(10px, 2vw, 16px);
+      gap: clamp(8px, 2vw, 14px);
       width: 100%;
-      max-width: 440px;
+      max-width: 420px;
     }
 
     .card {
       aspect-ratio: 1 / 1;
-      border-radius: 20px;
+      border-radius: 18px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -93,45 +128,33 @@
       transition: transform 0.18s ease, box-shadow 0.18s ease;
       -webkit-tap-highlight-color: transparent;
       padding: 16px;
-      backdrop-filter: blur(8px);
-      -webkit-backdrop-filter: blur(8px);
     }
 
     .card:hover,
     .card:active { transform: scale(0.96); }
 
     .music {
-      background: rgba(160, 70, 0, 0.45);
-      border: 1px solid rgba(220, 120, 30, 0.35);
-      box-shadow: 0 8px 32px rgba(140, 60, 0, 0.5);
+      background: linear-gradient(150deg, #c47a10, #7a4200);
+      box-shadow: 0 6px 28px rgba(140, 70, 0, 0.45);
     }
 
     .photo {
-      background: rgba(120, 10, 10, 0.5);
-      border: 1px solid rgba(200, 40, 40, 0.35);
-      box-shadow: 0 8px 32px rgba(140, 10, 10, 0.55);
+      background: linear-gradient(150deg, #9e1a0a, #5a0805);
+      box-shadow: 0 6px 28px rgba(130, 15, 10, 0.5);
     }
 
     .drug {
-      background: rgba(10, 90, 45, 0.45);
-      border: 1px solid rgba(40, 180, 90, 0.3);
-      box-shadow: 0 8px 32px rgba(10, 100, 50, 0.45);
+      background: linear-gradient(150deg, #1e9454, #0a5230);
+      box-shadow: 0 6px 28px rgba(10, 90, 50, 0.45);
     }
 
     .web {
-      background: rgba(10, 50, 110, 0.45);
-      border: 1px solid rgba(40, 130, 210, 0.3);
-      box-shadow: 0 8px 32px rgba(10, 60, 140, 0.45);
-    }
-
-    .card-icon {
-      font-size: clamp(1.6rem, 5vw, 2.4rem);
-      margin-bottom: 8px;
-      line-height: 1;
+      background: linear-gradient(150deg, #1860a8, #0a3a70);
+      box-shadow: 0 6px 28px rgba(10, 55, 130, 0.45);
     }
 
     .label {
-      font-size: clamp(0.85rem, 2.8vw, 1.15rem);
+      font-size: clamp(0.88rem, 2.8vw, 1.1rem);
       font-weight: 700;
       color: #fff;
       line-height: 1.2;
@@ -140,23 +163,23 @@
     }
 
     .sub {
-      font-size: clamp(0.5rem, 1.2vw, 0.62rem);
+      font-size: clamp(0.5rem, 1.2vw, 0.6rem);
       font-weight: 300;
-      color: rgba(255,255,255,0.42);
+      color: rgba(255,255,255,0.45);
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-top: 4px;
+      margin-top: 5px;
       text-align: center;
     }
   </style>
 </head>
 <body>
 
-  <div class="bg"></div>
-  <div class="bg-overlay"></div>
+  <div class="photo-wrap">
+    <img src="/image-1777877237158.jpg" alt="Robert" />
+  </div>
 
   <div class="content">
-
     <div class="title-block">
       <p class="welcome-sub">Welcome to</p>
       <h1>Robert's Website</h1>
@@ -165,31 +188,26 @@
     <div class="grid">
 
       <a class="card music" href="/music">
-        <div class="card-icon">🎵</div>
         <div class="label">Two Bottles<br>Music</div>
         <div class="sub">Stream & Listen</div>
       </a>
 
       <a class="card photo" href="/photography">
-        <div class="card-icon">📷</div>
         <div class="label">Photography</div>
         <div class="sub">Portfolio</div>
       </a>
 
       <a class="card drug" href="/harmreduction">
-        <div class="card-icon">🧪</div>
         <div class="label">Harm Reduction</div>
         <div class="sub">Resources & Tools</div>
       </a>
 
       <a class="card web" href="/web-dev">
-        <div class="card-icon">💻</div>
         <div class="label">Web Dev</div>
         <div class="sub">Projects & Work</div>
       </a>
 
     </div>
-
   </div>
 
 </body>
