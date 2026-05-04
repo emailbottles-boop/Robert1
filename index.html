@@ -3,24 +3,71 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Two Bottles</title>
+  <title>Robert's Website</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;700;900&display=swap');
+    @import url('https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;700;900&display=swap');
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
 
     body {
       font-family: 'Outfit', sans-serif;
       background: #0d0d0d;
+      color: #fff;
       height: 100vh;
       height: 100dvh;
       width: 100vw;
       overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      padding: 12px;
+      gap: 10px;
+    }
+
+    /* ── Header ── */
+    header {
+      display: flex;
+      align-items: center;
+      gap: 16px;
+      padding: 10px 16px;
+      background: #141414;
+      border-radius: 20px;
+      flex-shrink: 0;
+    }
+
+    .avatar {
+      width: clamp(52px, 10vw, 72px);
+      height: clamp(52px, 10vw, 72px);
+      border-radius: 50%;
+      object-fit: cover;
+      object-position: center top;
+      flex-shrink: 0;
+      border: 2px solid #2a2a2a;
+    }
+
+    .welcome-sub {
+      font-size: clamp(0.58rem, 1.5vw, 0.7rem);
+      font-weight: 400;
+      letter-spacing: 0.14em;
+      text-transform: uppercase;
+      color: rgba(255,255,255,0.28);
+      margin-bottom: 3px;
+    }
+
+    h1 {
+      font-size: clamp(1.2rem, 4.5vw, 2rem);
+      font-weight: 900;
+      letter-spacing: -0.04em;
+      line-height: 1.05;
+    }
+
+    /* ── Card grid ── */
+    .grid {
+      flex: 1;
       display: grid;
       grid-template-columns: 1fr 1fr;
       grid-template-rows: 1fr 1fr;
       gap: 10px;
-      padding: 10px;
+      min-height: 0;
     }
 
     .card {
@@ -29,25 +76,24 @@
       flex-direction: column;
       align-items: center;
       justify-content: center;
-      padding: clamp(16px, 4vw, 32px);
+      padding: clamp(12px, 3vw, 28px);
       text-decoration: none;
       cursor: pointer;
-      position: relative;
       overflow: hidden;
-      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      transition: transform 0.2s ease;
       -webkit-tap-highlight-color: transparent;
     }
 
     .card:hover,
     .card:active { transform: scale(0.97); }
 
-    .music { background: linear-gradient(150deg, #e8a020, #b86800); box-shadow: 0 8px 40px rgba(184,104,0,0.5); }
-    .photo { background: linear-gradient(150deg, #e05c30, #a82a0a); box-shadow: 0 8px 40px rgba(168,42,10,0.5); }
-    .drug  { background: linear-gradient(150deg, #2db86a, #0e7a3e); box-shadow: 0 8px 40px rgba(14,122,62,0.5); }
-    .web   { background: linear-gradient(150deg, #2898d8, #0a5ea8); box-shadow: 0 8px 40px rgba(10,94,168,0.5); }
+    .music { background: linear-gradient(150deg, #e8a020, #b86800); box-shadow: 0 8px 40px rgba(184,104,0,0.45); }
+    .photo { background: linear-gradient(150deg, #e05c30, #a82a0a); box-shadow: 0 8px 40px rgba(168,42,10,0.45); }
+    .drug  { background: linear-gradient(150deg, #2db86a, #0e7a3e); box-shadow: 0 8px 40px rgba(14,122,62,0.45); }
+    .web   { background: linear-gradient(150deg, #2898d8, #0a5ea8); box-shadow: 0 8px 40px rgba(10,94,168,0.45); }
 
     .label {
-      font-size: clamp(1.1rem, 4vw, 2.1rem);
+      font-size: clamp(1rem, 3.5vw, 1.9rem);
       font-weight: 700;
       color: #fff;
       line-height: 1.15;
@@ -56,52 +102,49 @@
     }
 
     .sub {
-      font-size: clamp(0.6rem, 1.6vw, 0.78rem);
+      font-size: clamp(0.55rem, 1.4vw, 0.72rem);
       font-weight: 300;
-      color: rgba(255,255,255,0.6);
+      color: rgba(255,255,255,0.55);
       letter-spacing: 0.12em;
       text-transform: uppercase;
-      margin-top: 6px;
+      margin-top: 5px;
       text-align: center;
-    }
-
-    .badge {
-      position: absolute;
-      top: 14px;
-      right: 14px;
-      background: rgba(0,0,0,0.2);
-      color: rgba(255,255,255,0.5);
-      font-size: clamp(0.48rem, 1.2vw, 0.6rem);
-      font-weight: 700;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      padding: 4px 10px;
-      border-radius: 20px;
     }
   </style>
 </head>
 <body>
 
-  <a class="card music" href="/music">
+  <header>
+    <img class="avatar" src="/image-1777757250340.jpg" alt="Robert" />
+    <div>
+      <p class="welcome-sub">Welcome to</p>
+      <h1>Robert's Website</h1>
+    </div>
+  </header>
 
-    <div class="label">Two Bottles<br>Music</div>
-    <div class="sub">Stream &amp; Listen</div>
-  </a>
+  <div class="grid">
 
-  <a class="card photo" href="/photography">
-    <div class="label">Photo&shy;graphy</div>
-    <div class="sub">Portfolio</div>
-  </a>
+    <a class="card music" href="/music">
+      <div class="label">Two Bottles<br>Music</div>
+      <div class="sub">Stream &amp; Listen</div>
+    </a>
 
-  <a class="card drug" href="/harmreduction">
-    <div class="label">Harm Reduction</div>
-    <div class="sub">Harm Reduction</div>
-  </a>
+    <a class="card photo" href="/photography">
+      <div class="label">Photo&shy;graphy</div>
+      <div class="sub">Portfolio</div>
+    </a>
 
-  <a class="card web" href="/web-dev">
-    <div class="label">Web Dev</div>
-    <div class="sub">Projects &amp; Work</div>
-  </a>
+    <a class="card drug" href="/harmreduction">
+      <div class="label">Harm Reduction</div>
+      <div class="sub">Resources &amp; Tools</div>
+    </a>
+
+    <a class="card web" href="/web-dev">
+      <div class="label">Web Dev</div>
+      <div class="sub">Projects &amp; Work</div>
+    </a>
+
+  </div>
 
 </body>
 </html>
