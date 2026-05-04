@@ -39,7 +39,6 @@
       align-items: center;
     }
 
-    /* ── Animated background ── */
     .bg-glow {
       position: fixed;
       inset: 0;
@@ -80,7 +79,6 @@
       to   { transform: translate(40px, 30px) scale(1.1); }
     }
 
-    /* ── Layout ── */
     .wrapper {
       position: relative;
       z-index: 1;
@@ -92,7 +90,6 @@
       align-items: center;
     }
 
-    /* ── Hero ── */
     .hero {
       display: flex;
       flex-direction: column;
@@ -144,7 +141,6 @@
       line-height: 1.6;
     }
 
-    /* ── Section titles ── */
     .section-title {
       width: 100%;
       font-size: 0.72rem;
@@ -156,7 +152,6 @@
       padding-left: 2px;
     }
 
-    /* ── Platform buttons ── */
     .platforms {
       width: 100%;
       display: flex;
@@ -192,27 +187,19 @@
       transition: opacity 0.18s ease;
     }
 
-    .btn:hover {
-      transform: translateY(-2px);
-    }
+    .btn:hover { transform: translateY(-2px); }
+    .btn:active { transform: translateY(0); }
 
-    .btn:active {
-      transform: translateY(0);
-    }
-
-    /* Spotify */
     .btn-spotify { --c: var(--spotify); }
     .btn-spotify::before { background: linear-gradient(135deg, rgba(29,185,84,0.08), transparent); }
     .btn-spotify:hover { border-color: var(--spotify); box-shadow: 0 4px 32px rgba(29,185,84,0.18); }
     .btn-spotify:hover::before { opacity: 1; }
 
-    /* SoundCloud */
     .btn-soundcloud { --c: var(--soundcloud); }
     .btn-soundcloud::before { background: linear-gradient(135deg, rgba(255,85,0,0.08), transparent); }
     .btn-soundcloud:hover { border-color: var(--soundcloud); box-shadow: 0 4px 32px rgba(255,85,0,0.18); }
     .btn-soundcloud:hover::before { opacity: 1; }
 
-    /* YouTube */
     .btn-youtube { --c: var(--youtube); }
     .btn-youtube::before { background: linear-gradient(135deg, rgba(255,0,0,0.08), transparent); }
     .btn-youtube:hover { border-color: var(--youtube); box-shadow: 0 4px 32px rgba(255,0,0,0.18); }
@@ -265,7 +252,6 @@
       color: var(--text);
     }
 
-    /* ── Direct links grid ── */
     .links-grid {
       width: 100%;
       display: grid;
@@ -311,7 +297,6 @@
       color: var(--muted);
     }
 
-    /* ── Spotify embed ── */
     .embed-wrap {
       width: 100%;
       margin-bottom: 48px;
@@ -323,7 +308,6 @@
       border: none;
     }
 
-    /* ── Footer ── */
     footer {
       position: relative;
       z-index: 1;
@@ -340,11 +324,8 @@
       text-decoration: none;
     }
 
-    footer a:hover {
-      text-decoration: underline;
-    }
+    footer a:hover { text-decoration: underline; }
 
-    /* ── Responsive ── */
     @media (max-width: 480px) {
       .links-grid { grid-template-columns: 1fr; }
       .hero { padding: 60px 0 40px; }
@@ -357,14 +338,12 @@
 
   <div class="wrapper">
 
-    <!-- Hero -->
     <section class="hero">
       <div class="avatar"><img src="/image-1777757250340.jpg" alt="Two Bottles" /></div>
       <h1>Two Bottles</h1>
       <p>Stream, follow, and listen — find all my music across every platform below.</p>
     </section>
 
-    <!-- Platform links -->
     <p class="section-title">Listen Now</p>
     <div class="platforms">
 
@@ -372,7 +351,6 @@
          href="https://open.spotify.com/artist/1OCkJObkDGhLabLZYN0ZwO"
          target="_blank" rel="noopener noreferrer">
         <span class="btn-icon">
-          <!-- Spotify icon -->
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24.359-.66.48-1.021.24-2.82-1.74-6.36-2.101-10.561-1.141-.418.122-.779-.179-.899-.539-.12-.421.18-.78.54-.9 4.56-1.021 8.52-.6 11.64 1.32.42.18.479.659.301 1.02zm1.44-3.3c-.301.42-.841.6-1.262.3-3.239-1.98-8.159-2.58-11.939-1.38-.479.12-1.02-.12-1.14-.6-.12-.48.12-1.021.6-1.141C9.6 9.9 15 10.561 18.72 12.84c.361.181.54.78.241 1.2zm.12-3.36C15.24 8.4 8.82 8.16 5.16 9.301c-.6.179-1.2-.181-1.38-.721-.18-.601.18-1.2.72-1.381 4.26-1.26 11.28-1.02 15.721 1.621.539.3.719 1.02.419 1.56-.299.421-1.02.599-1.559.3z"/>
           </svg>
@@ -388,7 +366,6 @@
          href="https://soundcloud.com/emailbottles"
          target="_blank" rel="noopener noreferrer">
         <span class="btn-icon">
-          <!-- SoundCloud icon -->
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M1.175 12.225c-.056 0-.11.006-.164.017a.928.928 0 0 0-.217.068.776.776 0 0 0-.185.12.713.713 0 0 0-.137.163.596.596 0 0 0-.082.195.506.506 0 0 0-.016.128v.006l.624 5.095-.624 4.97a.506.506 0 0 0 .016.128.596.596 0 0 0 .082.195.713.713 0 0 0 .137.163.776.776 0 0 0 .185.12.928.928 0 0 0 .217.068c.054.01.108.016.164.016a.834.834 0 0 0 .374-.087.8.8 0 0 0 .284-.236.634.634 0 0 0 .12-.37v-9.97a.634.634 0 0 0-.12-.37.8.8 0 0 0-.284-.236.834.834 0 0 0-.374-.087zm3.137-1.877a.82.82 0 0 0-.592.246.82.82 0 0 0-.246.592v10.5c0 .232.087.43.246.59a.82.82 0 0 0 .592.246.82.82 0 0 0 .592-.246.82.82 0 0 0 .246-.59v-10.5a.82.82 0 0 0-.246-.592.82.82 0 0 0-.592-.246zm3.05-1.168a.988.988 0 0 0-.714.298.988.988 0 0 0-.298.714v12.19c0 .278.105.516.298.714a.988.988 0 0 0 .714.298c.278 0 .516-.105.714-.298a.988.988 0 0 0 .298-.714V9.192a.988.988 0 0 0-.298-.714.988.988 0 0 0-.714-.298zm11.49-3.15c-.252 0-.494.05-.718.138a5.638 5.638 0 0 0-5.528-4.573 5.62 5.62 0 0 0-2.19.444 5.638 5.638 0 0 0-1.848 1.21.595.595 0 0 0-.186.44v13.45c0 .18.066.33.186.44a.595.595 0 0 0 .44.186h9.844c1.74 0 3.15-1.41 3.15-3.15 0-1.637-1.247-2.982-2.847-3.13a3.14 3.14 0 0 0 .697-1.955c0-1.74-1.41-3.15-3.15-3.15-.005 0-.01.001-.015.001a3.15 3.15 0 0 0 .015-.001z"/>
           </svg>
@@ -404,7 +381,6 @@
          href="https://www.youtube.com/channel/UCAnrFiStyxAX5dRakhDvhuA"
          target="_blank" rel="noopener noreferrer">
         <span class="btn-icon">
-          <!-- YouTube icon -->
           <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
             <path d="M23.495 6.205a3.007 3.007 0 0 0-2.088-2.088c-1.87-.501-9.396-.501-9.396-.501s-7.507-.01-9.396.501A3.007 3.007 0 0 0 .527 6.205a31.247 31.247 0 0 0-.522 5.805 31.247 31.247 0 0 0 .522 5.783 3.007 3.007 0 0 0 2.088 2.088c1.868.502 9.396.502 9.396.502s7.506 0 9.396-.502a3.007 3.007 0 0 0 2.088-2.088 31.247 31.247 0 0 0 .5-5.783 31.247 31.247 0 0 0-.5-5.805zM9.609 15.601V8.408l6.264 3.602z"/>
           </svg>
@@ -418,18 +394,16 @@
 
     </div>
 
-    <!-- Spotify album embed -->
     <p class="section-title">Latest Release</p>
     <div class="embed-wrap">
       <iframe
-        src="https://open.spotify.com/embed/album/6IDxep1Z2tHUSiA87LN2iz?utm_source=generator&theme=0"
+        src="https://open.spotify.com/embed/album/4cTiuk7DU92zjDf9JlobUh?utm_source=generator&theme=0"
         height="380"
         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
         loading="lazy">
       </iframe>
     </div>
 
-    <!-- SoundCloud tracks -->
     <p class="section-title">Featured Tracks</p>
     <div class="embed-wrap">
       <iframe
@@ -441,7 +415,6 @@
       </iframe>
     </div>
 
-    <!-- YouTube playlist embed -->
     <p class="section-title">On YouTube</p>
     <div class="embed-wrap">
       <div style="position:relative; padding-bottom:56.25%; height:0; overflow:hidden; border-radius:14px;">
@@ -455,7 +428,6 @@
       </div>
     </div>
 
-    <!-- Quick links grid -->
     <p class="section-title">Quick Links</p>
     <div class="links-grid">
       <a class="link-card"
