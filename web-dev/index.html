@@ -11,10 +11,10 @@
 
     body {
       font-family: 'Outfit', sans-serif;
-      background: #0d0d0d;
+      background: #0a0a0a;
       color: #fff;
       min-height: 100dvh;
-      padding: 80px 24px 60px;
+      padding: 80px 20px 60px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -31,12 +31,13 @@
       color: rgba(255,255,255,0.4);
       text-decoration: none;
       transition: color 0.2s;
+      z-index: 10;
     }
     .back:hover { color: #fff; }
 
     header {
       text-align: center;
-      margin-bottom: 48px;
+      margin-bottom: 40px;
     }
 
     h1 {
@@ -49,60 +50,148 @@
     .accent { color: #2898d8; }
 
     .subtitle {
-      font-size: 0.75rem;
+      font-size: 0.72rem;
       font-weight: 400;
-      letter-spacing: 0.12em;
+      letter-spacing: 0.14em;
       text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
+      color: rgba(255,255,255,0.28);
     }
 
     .grid {
       width: 100%;
       max-width: 680px;
-      display: flex;
-      flex-direction: column;
-      gap: 12px;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 14px;
     }
 
     .site-card {
-      display: flex;
-      align-items: center;
-      gap: 20px;
-      padding: 20px 24px;
       border-radius: 16px;
-      background: #181818;
-      border: 1px solid #2a2a2a;
+      overflow: hidden;
       text-decoration: none;
       color: #fff;
-      transition: border-color 0.2s, transform 0.2s;
+      background: #161616;
+      border: 1px solid #242424;
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
       -webkit-tap-highlight-color: transparent;
+      display: flex;
+      flex-direction: column;
     }
 
     .site-card:hover,
     .site-card:active {
-      border-color: #2898d8;
-      transform: scale(0.99);
+      transform: translateY(-3px);
+      box-shadow: 0 12px 36px rgba(0,0,0,0.5);
     }
 
-    .site-info { flex: 1; }
-
-    .site-name {
-      font-size: 1.05rem;
-      font-weight: 700;
-      margin-bottom: 3px;
+    .card-bar {
+      height: 5px;
+      width: 100%;
     }
 
-    .site-url {
-      font-size: 0.75rem;
-      font-weight: 400;
-      color: rgba(255,255,255,0.3);
-      letter-spacing: 0.03em;
+    .card-chrome {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 10px 14px;
+      background: #1e1e1e;
+      border-bottom: 1px solid #2a2a2a;
     }
 
-    .site-arrow {
-      color: #2898d8;
-      font-size: 1rem;
+    .dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: #3a3a3a;
       flex-shrink: 0;
+    }
+
+    .chrome-url {
+      flex: 1;
+      background: #2a2a2a;
+      border-radius: 4px;
+      padding: 3px 8px;
+      font-size: 0.58rem;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+      overflow: hidden;
+      text-overflow: ellipsis;
+    }
+
+    .card-body {
+      padding: 18px 16px 16px;
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .card-name {
+      font-size: clamp(0.9rem, 2.5vw, 1.05rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      line-height: 1.2;
+    }
+
+    .card-desc {
+      font-size: clamp(0.58rem, 1.4vw, 0.68rem);
+      font-weight: 300;
+      color: rgba(255,255,255,0.35);
+      letter-spacing: 0.04em;
+      line-height: 1.4;
+    }
+
+    .card-footer {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-top: 10px;
+    }
+
+    .card-tag {
+      font-size: 0.55rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      padding: 3px 8px;
+      border-radius: 20px;
+    }
+
+    .tag-wip {
+      background: rgba(255,180,0,0.15);
+      color: #f0b030;
+      border: 1px solid rgba(255,180,0,0.25);
+    }
+
+    .tag-live {
+      background: rgba(40,180,100,0.12);
+      color: #3dba72;
+      border: 1px solid rgba(40,180,100,0.2);
+    }
+
+    .card-arrow {
+      font-size: 0.85rem;
+      color: rgba(255,255,255,0.25);
+    }
+
+    .tb  .card-bar { background: linear-gradient(90deg, #e8a020, #c85010); }
+    .jsl .card-bar { background: linear-gradient(90deg, #8b6914, #5a3a08); }
+    .nd  .card-bar { background: linear-gradient(90deg, #7b3fc4, #3a1880); }
+    .tt  .card-bar { background: linear-gradient(90deg, #1878c8, #0a3a80); }
+    .ws  .card-bar { background: linear-gradient(90deg, #8a1ca0, #400060); }
+
+    .tb:hover  { border-color: #c47a10; }
+    .jsl:hover { border-color: #8b6914; }
+    .nd:hover  { border-color: #7b3fc4; }
+    .tt:hover  { border-color: #1878c8; }
+    .ws:hover  { border-color: #8a1ca0; }
+
+    .wide { grid-column: 1 / -1; }
+
+    @media (max-width: 420px) {
+      .grid { grid-template-columns: 1fr; }
+      .wide { grid-column: 1; }
     }
   </style>
 </head>
@@ -117,44 +206,84 @@
 
   <div class="grid">
 
-    <a class="site-card" href="https://twobottles.store" target="_blank" rel="noopener noreferrer">
-      <div class="site-info">
-        <div class="site-name">Two Bottles</div>
-        <div class="site-url">twobottles.store</div>
+    <a class="site-card tb" href="https://twobottles.store" target="_blank" rel="noopener noreferrer">
+      <div class="card-bar"></div>
+      <div class="card-chrome">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="chrome-url">twobottles.store</div>
       </div>
-      <span class="site-arrow">&#8599;</span>
+      <div class="card-body">
+        <div class="card-name">Two Bottles</div>
+        <div class="card-desc">Music merch &amp; brand store</div>
+        <div class="card-footer">
+          <span class="card-tag tag-live">Live</span>
+          <span class="card-arrow">&#8599;</span>
+        </div>
+      </div>
     </a>
 
-    <a class="site-card" href="https://jenniferstewartlaw.com" target="_blank" rel="noopener noreferrer">
-      <div class="site-info">
-        <div class="site-name">Jennifer Stewart Law</div>
-        <div class="site-url">jenniferstewartlaw.com</div>
+    <a class="site-card jsl" href="https://jenniferstewartlaw.com" target="_blank" rel="noopener noreferrer">
+      <div class="card-bar"></div>
+      <div class="card-chrome">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="chrome-url">jenniferstewartlaw.com</div>
       </div>
-      <span class="site-arrow">&#8599;</span>
+      <div class="card-body">
+        <div class="card-name">Jennifer Stewart Law</div>
+        <div class="card-desc">Attorney portfolio &amp; contact</div>
+        <div class="card-footer">
+          <span class="card-tag tag-live">Live</span>
+          <span class="card-arrow">&#8599;</span>
+        </div>
+      </div>
     </a>
 
-    <a class="site-card" href="https://noodlednd.me" target="_blank" rel="noopener noreferrer">
-      <div class="site-info">
-        <div class="site-name">Noodle DnD</div>
-        <div class="site-url">noodlednd.me</div>
+    <a class="site-card nd" href="https://noodlednd.me" target="_blank" rel="noopener noreferrer">
+      <div class="card-bar"></div>
+      <div class="card-chrome">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="chrome-url">noodlednd.me</div>
       </div>
-      <span class="site-arrow">&#8599;</span>
+      <div class="card-body">
+        <div class="card-name">Noodle DnD</div>
+        <div class="card-desc">Dungeons &amp; Dragons campaign site</div>
+        <div class="card-footer">
+          <span class="card-tag tag-wip">Under Construction</span>
+          <span class="card-arrow">&#8599;</span>
+        </div>
+      </div>
     </a>
 
-    <a class="site-card" href="https://twilighttinsel.store" target="_blank" rel="noopener noreferrer">
-      <div class="site-info">
-        <div class="site-name">Twilight Tinsel</div>
-        <div class="site-url">twilighttinsel.store</div>
+    <a class="site-card tt" href="https://twilighttinsel.store" target="_blank" rel="noopener noreferrer">
+      <div class="card-bar"></div>
+      <div class="card-chrome">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="chrome-url">twilighttinsel.store</div>
       </div>
-      <span class="site-arrow">&#8599;</span>
+      <div class="card-body">
+        <div class="card-name">Twilight Tinsel</div>
+        <div class="card-desc">Holiday decor &amp; gifts store</div>
+        <div class="card-footer">
+          <span class="card-tag tag-live">Live</span>
+          <span class="card-arrow">&#8599;</span>
+        </div>
+      </div>
     </a>
 
-    <a class="site-card" href="https://wizardshit.store" target="_blank" rel="noopener noreferrer">
-      <div class="site-info">
-        <div class="site-name">Wizard Shit</div>
-        <div class="site-url">wizardshit.store</div>
+    <a class="site-card ws wide" href="https://wizardshit.store" target="_blank" rel="noopener noreferrer">
+      <div class="card-bar"></div>
+      <div class="card-chrome">
+        <div class="dot"></div><div class="dot"></div><div class="dot"></div>
+        <div class="chrome-url">wizardshit.store</div>
       </div>
-      <span class="site-arrow">&#8599;</span>
+      <div class="card-body">
+        <div class="card-name">Wizard Shit</div>
+        <div class="card-desc">Novelty &amp; fantasy goods store</div>
+        <div class="card-footer">
+          <span class="card-tag tag-live">Live</span>
+          <span class="card-arrow">&#8599;</span>
+        </div>
+      </div>
     </a>
 
   </div>
